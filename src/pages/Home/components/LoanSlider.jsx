@@ -93,6 +93,9 @@ class LoanSlider extends React.Component {
           <span className="text-5xl font-bold text-center">
             { monthlyInstallmentAmount }
         €
+            {' '}
+            <span className="text-3xl">/ </span>
+            <span className="text-lg">per month</span>
           </span>
 
           <button
