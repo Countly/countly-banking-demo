@@ -16,11 +16,11 @@ class CustomerSlider extends React.Component {
     const { email } = this.state;
     return (
       <div
-        className="text-white p-20 flex flex-row"
+        className="text-white px-10 flex flex-col"
         style={{
           background: `linear-gradient(to right,${THIRD_COLOR},${SECOND_COLOR})`,
-          height: '460px',
-          display: isActive ? 'block' : 'none',
+          minHeight: '460px',
+          display: isActive ? 'flex' : 'none',
         }}
       >
         <div className="my-auto">
@@ -30,20 +30,20 @@ class CustomerSlider extends React.Component {
             the form below! Apply now, quickly and easily, without the need to
             go to the branch.
           </p>
-        </div>
-        <div className="flex flex-row mt-6">
           <input
-            className="bg-white text-gray-900 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-2/5 appearance-none leading-normal"
+            className="bg-white text-gray-900 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-2/5 appearance-none leading-normal mt-2"
             type="email"
             placeholder="jane@example.com"
             value={email}
             onChange={(e) => this.setState({ email: e.target.value })}
           />
-        </div>
-        <button type="button" className="bg-white hover:bg-gray-300 text-countly-800 font-bold py-2 px-4 rounded mt-6">
+          <button type="button" className="bg-white w-1/6 hover:bg-gray-300 text-countly-800 font-bold py-2 px-4 rounded mt-2">
           Send
-        </button>
+          </button>
+        </div>
+
       </div>
+
     );
   }
 }

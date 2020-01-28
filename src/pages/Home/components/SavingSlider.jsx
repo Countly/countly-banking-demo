@@ -4,11 +4,11 @@ import { SECOND_COLOR, THIRD_COLOR } from '../../../constants';
 
 const SavingSlider = ({ isActive }) => (
   <div
-    className="text-white p-20 flex flex-row"
+    className="text-white p-20 flex flex-col"
     style={{
       background: `linear-gradient(to right,${THIRD_COLOR},${SECOND_COLOR})`,
-      height: '460px',
-      display: isActive ? 'block' : 'none',
+      minHeight: '460px',
+      display: isActive ? 'flex' : 'none',
     }}
   >
     <div className="my-auto">

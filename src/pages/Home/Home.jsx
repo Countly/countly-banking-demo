@@ -30,7 +30,7 @@ class Home extends React.Component {
           <div className="row p-8">
             <div className="container mx-auto p-5">
               <div
-                className="flex flex-row justify-between text-center"
+                className="flex flex-row justify-between text-center flex-wrap"
                 style={{ fontSize: '14px' }}
               >
                 <Card

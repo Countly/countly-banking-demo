@@ -16,7 +16,7 @@ const Navbar = () => (
         <li className="inline-block mx-4">
           <Link to="/">ATM & Branches</Link>
         </li>
-        <li className="inline-block mr-4 float-right">
+        <li className="hidden md:inline-block mr-4 float-right">
           <Link to="/">Product and Service Fees</Link>
         </li>
       </ul>
@@ -30,7 +30,7 @@ const Navbar = () => (
       />
       <button
         type="button"
-        className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4 rounded"
+        className="bg-countly-700 hover:bg-countly-800 text-white font-bold p-2 rounded sm:text-sm"
       >
         Internet Banking
       </button>

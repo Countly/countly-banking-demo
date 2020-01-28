@@ -27,14 +27,14 @@ class LoanSlider extends React.Component {
     const { loanAmount, term, monthlyInstallmentAmount } = this.state;
     return (
       <div
-        className="text-white p-10 flex flex-row"
+        className="text-white p-10 flex flex-col md:flex-row"
         style={{
           background: `linear-gradient(to right,${THIRD_COLOR},${SECOND_COLOR})`,
-          height: '460px',
+          minHeight: '460px',
           display: isActive ? 'flex' : 'none',
         }}
       >
-        <div className="w-4/6 my-auto">
+        <div className="w-full md:w-4/6 my-auto">
           <h1 className="text-5xl">Advantageous Loans for All Your Needs</h1>
           <p className="text-xl">
             With advantageous interest rates and payment terms in your cash
@@ -86,7 +86,7 @@ class LoanSlider extends React.Component {
             </div>
           </div>
         </div>
-        <div className="w-2/6 my-auto flex flex-col">
+        <div className="w-full md:w-2/6 my-auto flex flex-col">
           <span className="text-xl text-center">
             Monthly Installment Amount
           </span>

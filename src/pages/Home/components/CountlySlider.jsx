@@ -5,14 +5,14 @@ import { SECOND_COLOR, THIRD_COLOR } from '../../../constants';
 
 const CountlySlider = ({ isActive }) => (
   <div
-    className="text-white p-20 flex flex-row"
+    className="text-white px-10 flex flex-col md:flex-row"
     style={{
       background: `linear-gradient(to right,${THIRD_COLOR},${SECOND_COLOR})`,
-      height: '460px',
+      minHeight: '460px',
       display: isActive ? 'flex' : 'none',
     }}
   >
-    <div className="w-4/6 my-auto">
+    <div className="w-full md:w-4/6 my-auto">
       <h1 className="text-5xl">
           We Renewed Our Personal Mobile and Internet Banking Channels!
       </h1>
@@ -21,14 +21,15 @@ const CountlySlider = ({ isActive }) => (
           transactions anytime and anywhere, more quickly and easily.
       </p>
     </div>
+    <div className="mx-auto my-auto p-4">
     <img
-      className="absolute"
-      style={{ right: '12px', top: '400px' }}
-      width="459"
+      className="rounded-lg"
       alt="countly"
-      height="406"
+      width="400"
       src={countlyOverview}
     />
+    </div>
+    
   </div>
 );
 
