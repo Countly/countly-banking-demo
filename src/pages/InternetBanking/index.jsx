@@ -1,16 +1,8 @@
 import React from 'react';
-import { SideNav, Chevron, Icon } from 'react-side-nav';
-import { Link } from 'react-router-dom';
-import Menu, { SubMenu, Item as MenuItem, Divider } from 'rc-menu';
+import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import 'rc-menu/assets/index.css';
 
 class InternetBanking extends React.Component {
-
-
-  constructor(props) {
-    super(props);
-   
-  }
 
 
   render() {
