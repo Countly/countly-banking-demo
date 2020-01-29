@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
+import { Link } from 'react-router-dom';
 import { updatePageLocation } from '../../actions/generalActions'
 
 class Login extends React.Component {
@@ -27,13 +28,13 @@ class Login extends React.Component {
             <label className="block text-gray-700 text-sm font-bold mb-2">
                 Customer Id
             </label>
-            <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Customer ID" />
+            <input className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Customer ID" />
             </div>
             <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2">
                 Password
             </label>
-            <input className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************"/>
+            <input className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************"/>
             <p className="text-red-500 text-xs italic">Please choose a password.</p>
             </div>
             <div className="flex items-center justify-between">
@@ -46,12 +47,14 @@ class Login extends React.Component {
 
 
     const secondStep = () => 
-        <div className="w-2/6 bg-white shadow-md rounded px-8 pt-6 pb-10 m-4 border border-gray-300 my-auto">
+        <div className="w-2/6 bg-white shadow-md rounded px-8 pt-6 pb-10 m-4 border border-gray-300">
         Please enter verification code 
         <input className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 my-3 leading-tight focus:outline-none focus:shadow-outline" id="verificationCode" type="text" placeholder="*******"/>
+        <Link to="/internet-banking">
         <button className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4 mt-3 mr-3 rounded focus:outline-none focus:shadow-outline" type="button">
         Sıgn In
         </button>
+        </Link>
         <button className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4 mt-3 rounded focus:outline-none focus:shadow-outline" type="button">
         Resend Verification Code
         </button>
@@ -59,9 +62,8 @@ class Login extends React.Component {
 
 
     return (
-        <div className="flex p-10 justify-center items-center">
+        <div className="flex p-10 justify-center items-center bg-countly-800 h-screen">
             { step === 1 ? firstStep() : secondStep() }
-          
         </div>
     );
   }
