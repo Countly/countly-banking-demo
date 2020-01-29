@@ -30,14 +30,14 @@ class Header extends React.Component {
       </nav>
   
       <div className="p-3 flex justify-between shadow items-center">
-      <Link to="/"><img
+      <Link to="/countly-banking-demo"><img
           width="200"
           alt="countly logo"
           src="https://count.ly/images/logos/countly-logo.svg"
         /></Link>
         { pageLocation === 'internet-banking' 
           ? (
-            <Link to="/">
+            <Link to="/countly-banking-demo">
               <button
                 type="button"
                 className="bg-countly-700 hover:bg-countly-800 text-white font-bold p-2 rounded sm:text-sm"

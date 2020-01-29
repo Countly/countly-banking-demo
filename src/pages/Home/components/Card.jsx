@@ -9,7 +9,7 @@ const Card = (props) => {
 
   return (
     <div
-      className="rounded overflow-hidden shadow-lg bg-gray-300 p-4 m-2 bg-white w-1/3 lg:w-1/4 xl:w-1/6 cursor-pointer"
+      className="select-none rounded overflow-hidden shadow-lg bg-gray-300 p-4 m-2 bg-white w-1/3 lg:w-1/4 xl:w-1/6 cursor-pointer"
       style={{
         backgroundColor: isActive ? '#e2e8f0' : 'white',
         border: isActive ? `1px ${FIRST_COLOR} solid` : '1px #E2E8F0 solid',

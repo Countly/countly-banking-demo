@@ -21,7 +21,7 @@ class App extends React.Component {
         <div>
         <Header />
           <Switch>
-            <Route path="/" exact>
+            <Route path="/countly-banking-demo" exact>
               <Home />
             </Route>
             <Route path="/internet-banking/login">
