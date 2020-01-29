@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../../common/components/header/Header';
 import countlyLogo from './images/countly.png';
 import Card from './components/Card';
 import savingImage from './images/saving.svg';
@@ -11,6 +10,8 @@ import AccountSlider from './components/AccountSlider';
 import SavingSlider from './components/SavingSlider';
 import CustomerSlider from './components/CustomerSlider';
 import LoanSlider from './components/LoanSlider';
+import {connect} from "react-redux";
+import { updatePageLocation } from '../../actions/generalActions'
 
 class Home extends React.Component {
   constructor(props) {
@@ -20,12 +21,13 @@ class Home extends React.Component {
     };
   }
 
+  componentDidMount(){
+    this.props.updatePageLocation("home")
+  }
+
   render() {
     const { activeTab } = this.state;
     return (
-      <div>
-        <Header />
-
         <div>
           <div className="row p-8">
             <div className="container mx-auto p-5">
@@ -77,9 +79,16 @@ class Home extends React.Component {
           <LoanSlider isActive={activeTab === 3} />
           <SavingSlider isActive={activeTab === 4} />
         </div>
-      </div>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return state
+};
+
+const mapDispatchToProps = {
+  updatePageLocation
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Home);

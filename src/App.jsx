@@ -1,7 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
+import Home from './pages/Home';
 import './css/tailwind.css';
+import InternetBanking from './pages/InternetBanking';
+import Login from './pages/Login';
+import Header from './common/components/Header';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,9 +19,16 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+        <Header />
           <Switch>
-            <Route path="/">
+            <Route path="/" exact>
               <Home />
+            </Route>
+            <Route path="/internet-banking/login">
+              <Login />
+            </Route>
+            <Route path="/internet-banking" exact>
+              <InternetBanking />
             </Route>
           </Switch>
           <div style={{ display: showCookieText ? 'flex' : 'none' }} className="w-full bg-white border border-gray-300 fixed bottom-0 flex justify-between items-center text-lg px-2">
