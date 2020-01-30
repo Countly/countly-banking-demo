@@ -1,38 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { SECOND_COLOR, THIRD_COLOR } from '../../../constants';
+import React, { useState } from 'react';
+import WhiteButton from '../../../common/components/WhiteButton';
+import TextInput from '../../../common/components/TextInput';
 
-class LoanSlider extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loanAmount: 5000,
-      term: 12,
-      monthlyInstallmentAmount: 416,
-    };
-  }
+const LoanSlider = () => {
 
-  inputOnChange(e) {
-    const { state } = this;
-    state[e.target.name] = e.target.value;
-    state.monthlyInstallmentAmount = parseInt(
-      state.loanAmount / state.term,
-      10,
-    );
-    this.setState(state);
-  }
+  const [loanAmount, setLoanAmount] = useState(5000);
+  const [term, setTerm] = useState(12);
 
-  render() {
-    const { isActive } = this.props;
-    const { loanAmount, term, monthlyInstallmentAmount } = this.state;
-    return (
+  return (
       <div
-        className="text-white p-10 flex flex-col md:flex-row"
-        style={{
-          background: `linear-gradient(to right,${THIRD_COLOR},${SECOND_COLOR})`,
-          minHeight: '460px',
-          display: isActive ? 'flex' : 'none',
-        }}
+        className="slider text-white p-10 flex flex-col md:flex-row"
       >
         <div className="w-full md:w-4/6 my-auto">
           <h1 className="text-5xl">Advantageous Loans for All Your Needs</h1>
@@ -51,16 +28,18 @@ class LoanSlider extends React.Component {
                 className="mt-3"
                 value={loanAmount}
                 name="loanAmount"
-                onChange={(e) => this.inputOnChange(e)}
+                onChange={(e) => setLoanAmount(e.target.value)}
                 type="range"
               />
-              <input
-                className="text-gray-800 bg-white mt-3 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block appearance-none leading-normal"
+              <TextInput
                 type="number"
                 value={loanAmount}
+                min="5000"
+                className="w-full"
+                max="100000"
                 placeholder="Loan Amount"
                 name="loanAmount"
-                onChange={(e) => this.inputOnChange(e)}
+                onChange={(e) => setLoanAmount(e.target.value)}
               />
             </div>
             <div className="w-1/2 flex flex-col">
@@ -71,47 +50,36 @@ class LoanSlider extends React.Component {
                 className="mt-3"
                 value={term}
                 name="term"
-                onChange={(e) => this.inputOnChange(e)}
+                onChange={(e) => setTerm(e.target.value)}
                 type="range"
               />
-              <input
-                className="text-gray-800 bg-white mt-3 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block appearance-none leading-normal"
-                type="number"
+              <TextInput 
+              type="number"
+              className="w-full"
                 value={term}
                 name="term"
-                min="1"
                 placeholder="Term ( Month )"
-                onChange={(e) => this.inputOnChange(e)}
-              />
+                onChange={(e) => setTerm(e.target.value)}
+                />
+           
             </div>
           </div>
         </div>
-        <div className="w-full md:w-2/6 my-auto flex flex-col">
-          <span className="text-xl text-center">
+        <div className="w-full md:w-2/6 my-auto flex flex-col  text-center">
+          <span className="text-xl">
             Monthly Installment Amount
           </span>
-          <span className="text-5xl font-bold text-center">
-            { monthlyInstallmentAmount }
+          <span className="text-5xl font-bold">
+            { parseInt(loanAmount / term, 10) }
         €
             {' '}
             <span className="text-3xl">/ </span>
             <span className="text-lg">per month</span>
           </span>
-
-          <button
-            type="button"
-            className="bg-white hover:bg-gray-300 text-countly-800 w-1/2 font-bold py-2 px-4 rounded mt-2 mx-auto"
-          >
-            Apply Now
-          </button>
+            <WhiteButton className="w-1/2 m-auto" title="Apply Now" />
         </div>
       </div>
     );
   }
-}
-
-LoanSlider.propTypes = {
-  isActive: PropTypes.bool.isRequired,
-};
 
 export default LoanSlider;

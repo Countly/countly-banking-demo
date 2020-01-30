@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import dataReducer from './reducers/DataReducer';
+import './i18n';
 
 const allEnhancers = compose(
   applyMiddleware(thunk),

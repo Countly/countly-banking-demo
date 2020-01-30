@@ -1,15 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { SECOND_COLOR, THIRD_COLOR } from '../../../constants';
 
-const SavingSlider = ({ isActive }) => (
+const SavingSlider = () => (
   <div
-    className="text-white p-20 flex flex-col"
-    style={{
-      background: `linear-gradient(to right,${THIRD_COLOR},${SECOND_COLOR})`,
-      minHeight: '460px',
-      display: isActive ? 'flex' : 'none',
-    }}
+    className="slider text-white p-20 flex flex-col"
   >
     <div className="my-auto">
       <h1 className="text-4xl">Making Savings Has Never Been This Easy!</h1>
@@ -40,8 +33,5 @@ const SavingSlider = ({ isActive }) => (
   </div>
 );
 
-SavingSlider.propTypes = {
-  isActive: PropTypes.bool.isRequired,
-};
 
 export default SavingSlider;

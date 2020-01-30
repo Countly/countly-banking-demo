@@ -1,77 +1,69 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {connect} from "react-redux";
+import { connect } from 'react-redux';
+import GreenButton from './GreenButton';
 
 class Header extends React.Component {
-
-  render(){
+  render() {
     const { pageLocation } = this.props.dataReducer;
 
     return (
       <header>
         <div className="w-full">
-      <nav className="p-1 shadow">
-        <ul>
-          <li className="inline-block mx-4">
-            <Link to="/">About Count Bank</Link>
-          </li>
-          <span className="text-gray-500 mx-2">|</span>
-          <li className="inline-block mx-4">
-            <Link to="/">Contact US</Link>
-          </li>
-          <span className="text-gray-500 mx-2">|</span>
-          <li className="inline-block mx-4">
-            <Link to="/">ATM & Branches</Link>
-          </li>
-          <li className="hidden md:inline-block mr-4 float-right">
-            <Link to="/">Product and Service Fees</Link>
-          </li>
-        </ul>
-      </nav>
-  
-      <div className="p-3 flex justify-between shadow items-center">
-      <Link to="/countly-banking-demo"><img
-          width="200"
-          alt="countly logo"
-          src="https://count.ly/images/logos/countly-logo.svg"
-        /></Link>
-        { pageLocation === 'internet-banking' 
-          ? (
+          <nav className="p-1 shadow">
+            <ul>
+              <li className="inline-block mx-4">
+                <Link to="/">About Count Bank</Link>
+              </li>
+              <span className="text-gray-500 mx-2">|</span>
+              <li className="inline-block mx-4">
+                <Link to="/">Contact US</Link>
+              </li>
+              <span className="text-gray-500 mx-2">|</span>
+              <li className="inline-block mx-4">
+                <Link to="/">ATM & Branches</Link>
+              </li>
+              <li className="hidden md:inline-block mr-4 float-right">
+                <Link to="/">Product and Service Fees</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <div className="p-3 flex justify-between shadow items-center">
             <Link to="/countly-banking-demo">
-              <button
-                type="button"
-                className="bg-countly-700 hover:bg-countly-800 text-white font-bold p-2 rounded sm:text-sm"
-              >
-          Home
-              </button>
+              <img
+                width="200"
+                alt="countly logo"
+                src="https://count.ly/images/logos/countly-logo.svg"
+              />
             </Link>
-          )
-          : (
-            <Link to="/internet-banking/login">
-              <button
-                type="button"
-                className="bg-countly-700 hover:bg-countly-800 text-white font-bold p-2 rounded sm:text-sm"
-              >
-        Internet Banking
-              </button>
-            </Link>
-          )}
-  
-  
-      </div>
-    </div>
+            { pageLocation === 'internet-banking'
+              ? (
+                <Link to="/countly-banking-demo">
+                  <GreenButton title="Home" />
+
+                </Link>
+              )
+              : (
+                <Link to="/internet-banking/login">
+
+              <GreenButton title="Internet Banking" />
+
+                </Link>
+              )}
+
+
+          </div>
+        </div>
       </header>
     );
   }
-  
 }
 
-const mapStateToProps = (state) => {
-  return state
-};
+const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = {
-  
+
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
