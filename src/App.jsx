@@ -37,7 +37,6 @@ class App extends React.Component {
 
             <p>{ t('common.cookieAreaContent') }</p>
 
-
             <div className="flex flex-row">
               <label htmlFor="preferences" className="m-2 select-none cursor-pointer">
                 <input type="checkbox" name="preferences" id="preferences" value="Preferences" />

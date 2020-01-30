@@ -1,5 +1,6 @@
 .rc-menu{
     border-top:0 !important;
+    border-left:0 !important;
     box-shadow: 0 0 0px black;
     color: white !important;
     cursor:pointer;

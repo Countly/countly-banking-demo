@@ -23,7 +23,6 @@ class Sidebar extends React.Component {
               <MenuItem key="1-3">Swift</MenuItem>
             </SubMenu>
 
-
             <SubMenu title={<span>Payments</span>} key="2">
               <SubMenu
                 key="2-1"

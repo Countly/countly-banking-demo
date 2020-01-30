@@ -41,7 +41,7 @@ class Login extends React.Component {
             </label>
             <TextInput id="password" type="password" className="w-full" placeholder="******************" />
           </div>
-          <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between">
           <GreenButton onClick={() => this.setState({ step: 2 })} title={ t('login.nextButtonText') } />
 
           </div>
