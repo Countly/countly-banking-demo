@@ -9,7 +9,9 @@ i18n
     lng: 'en',
     backend: {
       /* translation file path */
-      loadPath: '/countly-banking-demo/assets/i18n/{{ns}}/{{lng}}.json',
+    //  loadPath: '/countly-banking-demo/assets/i18n/{{ns}}/{{lng}}.json', // for prod
+        loadPath: '/assets/i18n/{{ns}}/{{lng}}.json',  // for dev
+
     },
     fallbackLng: 'en',
     debug: false,
