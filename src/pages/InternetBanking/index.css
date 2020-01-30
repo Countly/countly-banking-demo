@@ -7,26 +7,30 @@
   }
     
 .rc-menu-sub{
-background-color: #12ab47 !important;
+background-color: #0B131A !important;
 }
 
-.rc-menu-submenu-title{
-background-color: #12ab47 !important;
+.rc-menu-submenu-title, .rc-menu-submenu{
+background-color: #0B131A !important;
 }
 
 
 .rc-menu-submenu-active, .rc-menu-submenu-open{
-background-color: #12ab47 !important;
+background-color: #0B131A !important;
 }
 
 .rc-menu-item-active{
-background-color: #12ab47 !important;
+background-color: #0B131A !important;
 }
 
 .rc-menu-item-selected{
-  background-color: #12ab47 !important;
+  background-color: #0B131A !important;
   }
 
 .rc-menu li:hover , .rc-menu-submenu-title:hover{
 background-color: #13b94d !important;
+}
+
+.sidebar{
+  background-color:#0B131A
 }

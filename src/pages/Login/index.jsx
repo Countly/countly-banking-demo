@@ -64,7 +64,7 @@ class Login extends React.Component {
 
 
     return (
-      <div className="flex p-10 justify-center items-center bg-countly-800 h-screen">
+      <div className="flex p-10 justify-center items-center bg-darkcountly h-screen">
         { step === 1 ? firstStep() : secondStep() }
       </div>
     );

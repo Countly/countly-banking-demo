@@ -11,7 +11,7 @@ class Sidebar extends React.Component {
 
 
     return (
-        <div className="w-1/6 bg-countly-800 text-white">
+        <div className="sidebar w-1/6 text-white">
 
           <Menu
             className="h-screen"

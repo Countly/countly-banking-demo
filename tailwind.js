@@ -15,6 +15,7 @@ module.exports = {
         700 : '#13b94d',
         800 : '#12ab47'
       },
+      darkcountly: '#0B131A',
       black: '#000',
       white: '#fff',
 
