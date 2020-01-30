@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
 import WhiteButton from '../../../common/components/WhiteButton';
 import TextInput from '../../../common/components/TextInput';
+import { useTranslation } from 'react-i18next';
 
 const LoanSlider = () => {
 
   const [loanAmount, setLoanAmount] = useState(5000);
   const [term, setTerm] = useState(12);
+  const { t } = useTranslation();
 
   return (
       <div
         className="slider text-white p-10 flex flex-col md:flex-row"
       >
         <div className="w-full md:w-4/6 my-auto">
-          <h1 className="text-5xl">Advantageous Loans for All Your Needs</h1>
+          <h1 className="text-5xl">{t('home.loanSliderTitle')}</h1>
           <p className="text-xl">
-            With advantageous interest rates and payment terms in your cash
-            needs, it is in your most suitable loan account!
+          {t('home.loanSliderContent')}
           </p>
 
           <div className="flex flex-row mt-3">
             <div className="w-1/2 flex flex-col mr-4">
-              <strong>Loan Amount (€) </strong>
+              <strong>{t('home.loanSliderLabel')} </strong>
               <input
                 min="5000"
                 max="100000"
                 step="100"
                 className="mt-3"
                 value={loanAmount}
-                name="loanAmount"
+                name={t('home.loanSliderLabel')}
                 onChange={(e) => setLoanAmount(e.target.value)}
                 type="range"
               />
@@ -37,13 +38,13 @@ const LoanSlider = () => {
                 min="5000"
                 className="w-full"
                 max="100000"
-                placeholder="Loan Amount"
-                name="loanAmount"
+                placeholder={t('home.loanSliderLabel2')}
+                name="loan amount"
                 onChange={(e) => setLoanAmount(e.target.value)}
               />
             </div>
             <div className="w-1/2 flex flex-col">
-              <strong>Term ( Month )</strong>
+              <strong>{t('home.loanSliderLabel2')}</strong>
               <input
                 min="1"
                 max="36"
@@ -67,16 +68,16 @@ const LoanSlider = () => {
         </div>
         <div className="w-full md:w-2/6 my-auto flex flex-col  text-center">
           <span className="text-xl">
-            Monthly Installment Amount
+          {t('home.loanSliderContent2')}
           </span>
           <span className="text-5xl font-bold">
             { parseInt(loanAmount / term, 10) }
         €
             {' '}
             <span className="text-3xl">/ </span>
-            <span className="text-lg">per month</span>
+            <span className="text-lg">{t('home.loanSliderPerMonth')}</span>
           </span>
-            <WhiteButton className="w-1/2 m-auto" title="Apply Now" />
+            <WhiteButton className="w-1/2 m-auto" title={t('home.loanSliderButtonText')} />
         </div>
       </div>
     );

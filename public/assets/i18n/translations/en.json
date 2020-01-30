@@ -1,17 +1,54 @@
 {
     "common": {
         "cookieAreaTitle" : "This website uses cookies.",
-        "cookieAreaContent" : "We use cookies to personalise content and ads, to provide social media features, and to analyse our traffic. We also share information about your use of our site with our social media, advertising, and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services. You consent to our cookies if you continue to use our website."
+        "cookieAreaContent" : "We use cookies to personalise content and ads, to provide social media features, and to analyse our traffic. We also share information about your use of our site with our social media, advertising, and analytics partners who may combine it with other information that you’ve provided to them or that they’ve collected from your use of their services. You consent to our cookies if you continue to use our website.",
+        "cookieAreaText1": "Preferences",
+        "cookieAreaText2":  "Statistics",
+        "cookieAreaText3": "Marketing",
+        "cookieAreaButtonText": "OK",
+        "headerHomeButtonText" : "Home",
+        "headerInternetBankingButtonText" : "Internet Banking",
+        "headerLinkText1" : "About Count Bank",
+        "headerLinkText2" : "Contact US",
+        "headerLinkText3" : "ATM & Branches",
+        "headerLinkText4" : "Product and Service Fees"
     },
     "home": {
         "countlyCard" : "Countly",
         "customerCard" : "Be a Customer",
         "accountCard" : "Account",
         "loanCard" : "Loan",
-        "savingCard" : "Saving"
+        "savingCard" : "Saving",
+        "countlySliderTitle": "We Renewed Our Personal Mobile and Internet Banking Channels!",
+        "countlySliderContent": "With our renewed channels, you can now perform your banking transactions anytime and anywhere, more quickly and easily.",
+        "customerSliderTitle": "Be a Customer in Countly Bank",
+        "customerSliderContent": "To become a Countly Bank customer, all you have to do is fill out the form below! Apply now, quickly and easily, without the need to go to the branch." ,
+        "customerSliderButtonText": "Send",
+        "accountSliderTitle": "High Interest Rates In Countly Bank",
+        "accountSliderContent": "11.50% in TL, 2.25% in USD, 0.60% in EUR and 0.75% in Gold Opportunity to Evaluate Your Money with Interest is in Countly Account!",
+        "accountSliderButtonText": "More Info",
+        "accountSliderButtonText2": "Apply Now",
+        "loanSliderTitle": "Advantageous Loans for All Your Needs",
+        "loanSliderContent": "With advantageous interest rates and payment terms in your cash needs, it is in your most suitable loan account!",
+        "loanSliderLabel": "Loan Amount (€) ",
+        "loanSliderLabel2": "Term ( Month )",
+        "loanSliderContent2": "Monthly Installment Amount",
+        "loanSliderButtonText": "Apply Now",
+        "loanSliderPerMonth": "per month",
+        "savingSliderTitle": "Making Savings Has Never Been This Easy!",
+        "savingSliderCardTitle": "Private Pension System",
+        "savingSliderCardContent": "Start saving immediately with deposit rates specific to you.",
+        "savingSliderCardTitle2": "Deposit Account",
+        "savingSliderCardContent2": "Start saving now for your future dreams."
     },
     "login":{
-        "customerId": "Customer ID"
+        "customerId": "Customer ID",
+        "password": "Password",
+        "nextButtonText": "Next",
+        "verificationText": "Please enter verification code",
+        "signInButtonText": "Sign In",
+        "resendVerificationCodeButtonText": "Resend verification code"
+
     },
     "internetbanking": { 
         "transfers": "Transfers" 

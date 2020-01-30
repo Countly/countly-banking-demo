@@ -16,7 +16,8 @@ class Login extends React.Component {
 
 
   componentDidMount() {
-    this.props.updatePageLocation('internet-banking');
+    const { updatePageLocation } = this.props;
+    updatePageLocation('internet-banking');
   }
 
   render() {
@@ -35,13 +36,13 @@ class Login extends React.Component {
           </div>
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-                Password
+            { t('login.password') }
+
             </label>
             <TextInput id="password" type="password" className="w-full" placeholder="******************" />
-            <p className="text-red-500 text-xs italic">Please choose a password.</p>
           </div>
           <div className="flex items-center justify-between">
-          <GreenButton onClick={() => this.setState({ step: 2 })} title="Next" />
+          <GreenButton onClick={() => this.setState({ step: 2 })} title={ t('login.nextButtonText') } />
 
           </div>
         </form>
@@ -51,12 +52,12 @@ class Login extends React.Component {
 
     const secondStep = () => (
       <div className="w-2/6 bg-white shadow-md rounded px-8 pt-6 pb-10 m-4 border border-gray-300">
-        Please enter verification code
+        { t('login.verificationText') }
         <input className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 my-3 leading-tight focus:outline-none focus:shadow-outline" id="verificationCode" type="text" placeholder="*******" />
         <Link to="/internet-banking">
-          <GreenButton title="Sign In" />
+          <GreenButton title={ t('login.signInButtonText') } />
         </Link>
-        <GreenButton title="Resend Verification Code" />
+        <GreenButton title={ t('login.resendVerificationCodeButtonText') } />
       
       </div>
     );

@@ -22,6 +22,10 @@ background-color: #12ab47 !important;
 background-color: #12ab47 !important;
 }
 
+.rc-menu-item-selected{
+  background-color: #12ab47 !important;
+  }
+
 .rc-menu li:hover , .rc-menu-submenu-title:hover{
 background-color: #13b94d !important;
 }

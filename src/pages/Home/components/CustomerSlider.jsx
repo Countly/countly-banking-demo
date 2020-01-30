@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import WhiteButton from '../../../common/components/WhiteButton';
 import TextInput from '../../../common/components/TextInput';
+import { useTranslation } from 'react-i18next';
 
 const CustomerSlider = () => {
   const [email, setEmail] = useState('');
+  const { t } = useTranslation();
+
   return (
     <div
       className="slider text-white px-10 flex flex-col"
     >
       <div className="my-auto">
-        <h1 className="text-5xl">Be a Customer in Countly Bank</h1>
+        <h1 className="text-5xl">{t('home.customerSliderTitle')}</h1>
         <p>
-            To become a Countly Bank customer, all you have to do is fill out
-            the form below! Apply now, quickly and easily, without the need to
-            go to the branch.
+          {t('home.customerSliderContent')}
         </p>
         <TextInput
           type="email"
@@ -21,7 +22,7 @@ const CustomerSlider = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <WhiteButton title="Send" />
+        <WhiteButton title={t('home.customerSliderButtonText')} />
       </div>
 
     </div>

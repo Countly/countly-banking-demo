@@ -18,20 +18,19 @@ class App extends React.Component {
   render() {
     const { showCookieText } = this.state;
     const { t } = this.props;
+  
     return (
       <Router>
         <div>
           <Header />
+
           <Switch>
-            <Route path="/countly-banking-demo" exact>
-              <Home />
-            </Route>
-            <Route path="/internet-banking/login">
-              <Login />
-            </Route>
-            <Route path="/internet-banking" exact>
-              <InternetBanking />
-            </Route>
+            <Route path="/countly-banking-demo" component={Home} exact/>
+             
+            <Route path="/internet-banking/login" component={Login} exact/>
+
+            <Route path="/internet-banking" component={InternetBanking}/>
+             
           </Switch>
           <div style={{ display: showCookieText ? 'flex' : 'none' }} className="w-full bg-white border border-gray-300 fixed bottom-0 flex flex-col items-center text-lg p-2">
             <h3 className="text-2xl">{ t('common.cookieAreaTitle') }</h3>
@@ -43,21 +42,21 @@ class App extends React.Component {
               <label htmlFor="preferences" className="m-2 select-none cursor-pointer">
                 <input type="checkbox" name="preferences" id="preferences" value="Preferences" />
                 {' '}
-Preferences
+                { t('common.cookieAreaText1') }
               </label>
               <label htmlFor="statistics" className="m-2 select-none cursor-pointer">
                 <input type="checkbox" name="statistics" id="statistics" value="Statistics" />
                 {' '}
-Statistics
+                { t('common.cookieAreaText2') }
               </label>
               <label htmlFor="marketing" className="m-2 select-none cursor-pointer">
                 <input type="checkbox" name="marketing" id="marketing" value="Marketing" />
                 {' '}
-Marketing
+                { t('common.cookieAreaText3') }
               </label>
             </div>
 
-            <button type="button" onClick={() => this.setState({ showCookieText: false })} className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4">OK</button>
+            <button type="button" onClick={() => this.setState({ showCookieText: false })} className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4">{t('common.cookieAreaButtonText')}</button>
           </div>
         </div>
       </Router>
