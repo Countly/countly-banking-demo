@@ -1,36 +1,34 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
-import Sidebar from './Sidebar'
 import {
   Switch,
   Route,
-  useRouteMatch
-} from "react-router-dom";
+  useRouteMatch,
+} from 'react-router-dom';
+import Sidebar from './Sidebar';
 import Main from './Main';
 import Transfers from './Transfers';
 
 
 const InternetBanking = () => {
+  const { path } = useRouteMatch();
 
-    let { path } = useRouteMatch();
+  return (
 
-    return (
-      
-        <div className="flex">
-          <Sidebar />
+    <div className="flex">
+      <Sidebar />
 
-        <div className="col-sm-10 p-6">
+      <div className="w-full p-6">
 
         <Switch>
-        <Route exact path={path} component={Main} />
-        <Route exact path={`${path}/transfers`} component={Transfers} />
-       </Switch>
+          <Route exact path={path} component={Main} />
+          <Route exact path={`${path}/transfers`} component={Transfers} />
+        </Switch>
 
-        </div>
-        </div>
-    );
-  
-}
+      </div>
+    </div>
+  );
+};
 
 
 export default withTranslation()(InternetBanking);
