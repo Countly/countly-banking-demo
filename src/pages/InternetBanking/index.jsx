@@ -7,7 +7,8 @@ import {
 } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Main from './Main';
-import Transfers from './Transfers';
+import Transfers from './WireTransfer';
+import Loan from './Loan';
 
 
 const InternetBanking = () => {
@@ -22,7 +23,8 @@ const InternetBanking = () => {
 
         <Switch>
           <Route exact path={path} component={Main} />
-          <Route exact path={`${path}/transfers`} component={Transfers} />
+          <Route exact path={`${path}/wire-transfer`} component={Transfers} />
+          <Route exact path={`${path}/loan`} component={Loan} />
         </Switch>
 
       </div>

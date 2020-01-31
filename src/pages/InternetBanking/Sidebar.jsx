@@ -6,7 +6,6 @@ import 'rc-menu/assets/index.css';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
-
   const { t } = useTranslation();
 
   return (
@@ -16,15 +15,18 @@ const Sidebar = () => {
         defaultActiveFirst
       >
         <SubMenu title={<span>{t('internetbanking.transfers')}</span>} key="1">
-          <MenuItem key="1-1">
-            {' '}
-            <Link to="/internet-banking/transfers">Send Money</Link>
+
+          <MenuItem className="p-3" key="1-1">
+            <Link to="/internet-banking/wire-transfer">
+              {t('internetbanking.wireTransfer')}
+            </Link>
           </MenuItem>
-          <MenuItem key="1-2">EFT</MenuItem>
-          <MenuItem key="1-3">Swift</MenuItem>
+
+          <MenuItem key="1-2">{t('internetbanking.eft')}</MenuItem>
+          <MenuItem key="1-3">{t('internetbanking.swift')}</MenuItem>
         </SubMenu>
 
-        <SubMenu title={<span>Payments</span>} key="2">
+        <SubMenu title={<span>{t('internetbanking.payments')}</span>} key="2">
           <SubMenu
             key="2-1"
             title={<span>Utilities</span>}
@@ -45,11 +47,21 @@ const Sidebar = () => {
         </SubMenu>
 
 
-        <MenuItem key="3">Products</MenuItem>
+        <MenuItem key="3">{t('internetbanking.products')}</MenuItem>
 
-        <MenuItem key="4">Investments</MenuItem>
-        <MenuItem key="5">Applications</MenuItem>
-        <MenuItem key="6">Settings</MenuItem>
+        <MenuItem key="4">{t('internetbanking.investments')}</MenuItem>
+
+
+        <SubMenu title={<span>{t('internetbanking.applications')}</span>} key="5">
+          <MenuItem key="5-1">
+            {t('internetbanking.creditCard')}
+          </MenuItem>
+          <MenuItem key="5-2"><Link to="/internet-banking/loan">{t('internetbanking.loan')}</Link></MenuItem>
+          <MenuItem key="5-3">{t('internetbanking.insurance')}</MenuItem>
+        </SubMenu>
+
+
+        <MenuItem key="6">{t('internetbanking.settings')}</MenuItem>
 
       </Menu>
 

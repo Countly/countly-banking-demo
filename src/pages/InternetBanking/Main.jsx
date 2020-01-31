@@ -2,11 +2,13 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 
 class Main extends React.Component {
+  componentDidMount() {
+    document.title = 'Internet Banking';
+  }
+
   render() {
     return (
-      <div>
-            main page is hereee
-      </div>
+      <div />
     );
   }
 }
