@@ -4,7 +4,9 @@ const Main = () => {
   document.title = 'Main';
 
   return (
-    <div />
+    <div>
+      Main page here
+    </div>
   );
 };
 

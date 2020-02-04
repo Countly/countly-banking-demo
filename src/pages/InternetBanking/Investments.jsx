@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Investments = () => {
-  document.title = 'Organization Page';
+  document.title = 'Investments Page';
 
   return (
     <div>Investments page</div>
