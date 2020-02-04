@@ -1,15 +1,12 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
 
-class Main extends React.Component {
-  render() {
-    return (
-      <div>
-            main page is hereee
-      </div>
-    );
-  }
-}
+const Main = () => {
+  document.title = 'Main';
+
+  return (
+    <div />
+  );
+};
 
 
-export default withTranslation()(Main);
+export default Main;

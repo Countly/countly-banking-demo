@@ -21,5 +21,10 @@ module.exports = {
     'react','prettier'
   ],
   rules: {
+    "jsx-a11y/label-has-associated-control": [ 2, {
+      "labelAttributes": ["label"],
+      "controlComponents": ["TextInput"],
+      "depth": 3,
+    }],
   },
 };

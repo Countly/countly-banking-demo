@@ -51,7 +51,18 @@
 
     },
     "internetbanking": { 
-        "transfers": "Transfers" 
+        "transfers": "Transfers",
+        "wireTransfer": "Wire Transfer",
+        "eft": "EFT",
+        "swift": "SWIFT",
+        "payments" : "Payments",
+        "products" : "Product",
+        "investments": "Investments",
+        "applications" : "Applications",
+        "creditCard" : "Credit Card",
+        "loan": "Loan",
+        "insurance": "Insurance",
+        "settings": "Settings"
     }
    
   }
