@@ -7,6 +7,10 @@ import InternetBanking from './pages/InternetBanking';
 import Login from './pages/Login';
 import Header from './common/components/Header';
 import './helpers/countly';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import ATM from './pages/ATM';
+import Fees from './pages/Fees';
 
 const App = () => {
   const [showCookieText, setShowCookieText] = useState(true);
@@ -20,6 +24,14 @@ const App = () => {
 
         <Switch>
           <Route path="/countly-banking-demo" component={Home} exact />
+
+          <Route path="/about" component={About} exact />
+
+          <Route path="/contact" component={Contact} exact />
+
+          <Route path="/atm" component={ATM} exact />
+
+          <Route path="/fees" component={Fees} exact />
 
           <Route path="/internet-banking/login" component={Login} exact />
 

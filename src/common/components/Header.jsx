@@ -11,19 +11,19 @@ const Header = () => {
         <nav className="p-1 shadow">
           <ul>
             <li className="inline-block mx-4">
-              <Link to="/">{t('common.headerLinkText1')}</Link>
+              <Link to="/about">{t('common.headerLinkText1')}</Link>
             </li>
             <span className="text-gray-500 mx-2">|</span>
 
             <li className="inline-block mx-4">
-              <Link to="/">{t('common.headerLinkText2')}</Link>
+              <Link to="/contact">{t('common.headerLinkText2')}</Link>
             </li>
             <span className="text-gray-500 mx-2">|</span>
             <li className="inline-block mx-4">
-              <Link to="/">{t('common.headerLinkText3')}</Link>
+              <Link to="/atm">{t('common.headerLinkText3')}</Link>
             </li>
             <li className="hidden md:inline-block mr-4 float-right">
-              <Link to="/">{t('common.headerLinkText4')}</Link>
+              <Link to="/fees">{t('common.headerLinkText4')}</Link>
             </li>
           </ul>
         </nav>
