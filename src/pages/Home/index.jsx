@@ -12,6 +12,10 @@ import SavingSlider from './components/SavingSlider';
 import CustomerSlider from './components/CustomerSlider';
 import LoanSlider from './components/LoanSlider';
 import './index.css';
+import Countly from '../../helpers/countly';
+
+
+Countly.sharedInstance().track_pageview('Home');
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState(0);

@@ -4,7 +4,7 @@ const CreditCard = () => {
   document.title = 'CreditCard Page';
 
   return (
-    <div>CreditCard page</div>
+    <div>aylık ortalama gelir, </div>
   );
 };
 

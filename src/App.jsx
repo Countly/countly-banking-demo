@@ -6,6 +6,7 @@ import './css/tailwind.css';
 import InternetBanking from './pages/InternetBanking';
 import Login from './pages/Login';
 import Header from './common/components/Header';
+import Countly from './helpers/countly';
 
 const App = () => {
   const [showCookieText, setShowCookieText] = useState(true);
