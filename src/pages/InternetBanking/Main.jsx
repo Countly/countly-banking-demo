@@ -1,17 +1,12 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
 
-class Main extends React.Component {
-  componentDidMount() {
-    document.title = 'Internet Banking';
-  }
+const Main = () => {
+  document.title = 'Main';
 
-  render() {
-    return (
-      <div />
-    );
-  }
-}
+  return (
+    <div />
+  );
+};
 
 
-export default withTranslation()(Main);
+export default Main;

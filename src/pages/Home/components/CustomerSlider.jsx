@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import WhiteButton from '../../../common/components/WhiteButton';
 import TextInput from '../../../common/components/TextInput';
-import { useTranslation } from 'react-i18next';
 
 const CustomerSlider = () => {
   const [email, setEmail] = useState('');
