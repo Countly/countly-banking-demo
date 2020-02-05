@@ -4,8 +4,8 @@ const Main = () => {
   document.title = 'Main';
 
   return (
-    <div>
-      Main page here
+    <div className="text-3xl">
+      Welcome
     </div>
   );
 };

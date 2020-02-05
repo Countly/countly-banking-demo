@@ -92,8 +92,6 @@ const Login = (props) => {
 
       <GreenButton onClick={() => signInClicked()} title={t('login.signInButtonText')} />
 
-      <GreenButton title={t('login.resendVerificationCodeButtonText')} />
-
     </div>
   );
 

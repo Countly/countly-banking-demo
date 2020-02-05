@@ -2,15 +2,28 @@ import React, { useState } from 'react';
 import { withTranslation } from 'react-i18next';
 import Steps from 'rc-steps';
 import 'rc-steps/assets/index.css';
+import Countly from 'countly-sdk-web';
 import GreenButton from '../../../common/components/GreenButton';
 import TextInput from '../../../common/components/TextInput';
 
 const Loan = () => {
+  Countly.start_event('LoanApplicationOperation');
   const [current, setCurrent] = useState(0);
 
   document.title = 'Loan';
 
   const { Step } = Steps;
+
+
+  const apply = () => {
+    setCurrent(3);
+    Countly.add_event({
+      key: 'Application',
+      segmentation: { type: 'Loan' },
+    });
+    Countly.end_event('LoanApplicationOperation');
+
+  };
 
 
   const firstStep = () => (
@@ -73,7 +86,7 @@ const Loan = () => {
       </div>
 
       <div className="flex items-center justify-between">
-        <GreenButton onClick={() => setCurrent(3)} title="next" />
+        <GreenButton onClick={() => apply()} title="next" />
       </div>
     </form>
   );

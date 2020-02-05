@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { withTranslation } from 'react-i18next';
 import Steps from 'rc-steps';
 import 'rc-steps/assets/index.css';
+import Countly from 'countly-sdk-web';
 import GreenButton from '../../../common/components/GreenButton';
 import TextInput from '../../../common/components/TextInput';
 
@@ -90,13 +91,22 @@ const WireTransfer = () => {
       <span>Cem Yılmaz</span>
       <span className="text-lg">Recipient IBAN</span>
       <span>İzmir - TR03 0011 1000 0000 0063 1657 87</span>
-      <GreenButton onClick={() => setCurrent(4)} title="Confirm and Send" />
+      <GreenButton onClick={() => finish()} title="Confirm and Send" />
 
     </div>
   );
 
+
+  const finish = () => {
+    setCurrent(4);
+    Countly.add_event({
+      key: 'Transfer',
+      segmentation: { type: 'Wire Transfer' },
+    });
+  };
+
   return (
-    <div className="w-full">
+    <div className="w-2/3">
 
       <Steps progressDot className="border border-gray-300" type="navigation" current={current} onChange={() => setCurrent(current)}>
         <Step title="Recipient Account" />
