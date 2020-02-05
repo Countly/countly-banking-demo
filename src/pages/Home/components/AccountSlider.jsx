@@ -15,8 +15,8 @@ const AccountSlider = () => {
         <p className="text-xl">
           { t('home.accountSliderContent') }
         </p>
-        <WhiteButton title={t('home.accountSliderButtonText')} />
-        <WhiteButton title={t('home.accountSliderButtonText2')} />
+        <WhiteButton onClick={() => {}} title={t('home.accountSliderButtonText')} />
+        <WhiteButton onClick={() => {}} title={t('home.accountSliderButtonText2')} />
 
       </div>
 

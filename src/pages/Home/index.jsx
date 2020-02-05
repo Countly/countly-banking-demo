@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Countly from 'countly-sdk-web';
 import countlyLogo from './images/countly.png';
 import Card from './components/Card';
 import savingImage from './images/saving.svg';
@@ -12,15 +13,20 @@ import SavingSlider from './components/SavingSlider';
 import CustomerSlider from './components/CustomerSlider';
 import LoanSlider from './components/LoanSlider';
 import './index.css';
-import Countly from '../../helpers/countly';
 
-
-Countly.sharedInstance().track_pageview('Home');
 
 const Home = () => {
+
   const [activeTab, setActiveTab] = useState(0);
   const { t } = useTranslation();
 
+  const cardClicked = (id, type) => {
+    setActiveTab(id);
+    Countly.add_event({
+      key: 'cardClick',
+      segmentation: { type },
+    });
+  };
 
   return (
     <div>
@@ -34,35 +40,35 @@ const Home = () => {
               photo={countlyLogo}
               title={t('home.countlyCard')}
               isActive={activeTab === 0}
-              onClick={() => setActiveTab(0)}
+              onClick={() => cardClicked(0, t('home.countlyCard'))}
             />
 
             <Card
               photo={customerImage}
               title={t('home.customerCard')}
               isActive={activeTab === 1}
-              onClick={() => setActiveTab(1)}
+              onClick={() => cardClicked(1, t('home.customerCard'))}
             />
 
             <Card
               photo={accountImage}
               title={t('home.accountCard')}
               isActive={activeTab === 2}
-              onClick={() => setActiveTab(2)}
+              onClick={() => cardClicked(2, t('home.accountCard'))}
             />
 
             <Card
               photo={loanImage}
               title={t('home.loanCard')}
               isActive={activeTab === 3}
-              onClick={() => setActiveTab(3)}
+              onClick={() => cardClicked(3, t('home.loanCard'))}
             />
 
             <Card
               photo={savingImage}
               title={t('home.savingCard')}
               isActive={activeTab === 4}
-              onClick={() => setActiveTab(4)}
+              onClick={() => cardClicked(4, t('home.savingCard'))}
             />
           </div>
         </div>

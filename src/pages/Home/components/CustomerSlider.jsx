@@ -22,7 +22,7 @@ const CustomerSlider = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <WhiteButton title={t('home.customerSliderButtonText')} />
+        <WhiteButton onClick={() => {}} title={t('home.customerSliderButtonText')} />
       </div>
 
     </div>

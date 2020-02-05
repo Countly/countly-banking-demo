@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
+import {
+  Switch, Route, withRouter,
+} from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
+import Countly from 'countly-sdk-web';
 import Home from './pages/Home';
 import './css/tailwind.css';
 import InternetBanking from './pages/InternetBanking';
@@ -12,13 +15,29 @@ import Contact from './pages/Contact';
 import ATM from './pages/ATM';
 import Fees from './pages/Fees';
 
-const App = () => {
-  const [showCookieText, setShowCookieText] = useState(true);
+class App extends React.Component {
+  componentWillMount() {
+    this.unlisten = this.props.history.listen((location, action) => {
+      Countly.track_pageview(location.pathname);
+    });
+  }
 
-  const { t } = useTranslation();
+  componentWillUnmount() {
+    this.unlisten();
+  }
 
-  return (
-    <Router>
+  state = {
+    showCookieText: true,
+  }
+
+
+
+
+  render() {
+    const { showCookieText } = this.state;
+    const { t } = this.props;
+
+    return (
       <div>
         <Header />
 
@@ -61,11 +80,11 @@ const App = () => {
             </label>
           </div>
 
-          <button type="button" onClick={() => setShowCookieText(false)} className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4">{t('common.cookieAreaButtonText')}</button>
+          <button type="button" onClick={() => this.setState({ showCookieText: false })} className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4">{t('common.cookieAreaButtonText')}</button>
         </div>
       </div>
-    </Router>
-  );
-};
+    );
+  }
+}
 
-export default App;
+export default withTranslation()(withRouter(App));

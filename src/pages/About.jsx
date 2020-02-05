@@ -1,6 +1,7 @@
 import React from 'react';
 import countlyOverview from './countly-overview.png';
 
+
 const About = () => (
   <div className="container mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 m-4 border border-gray-300">
     <h3 className="text-3xl">Countly Banking</h3>

@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Countly from 'countly-sdk-web';
 import WhiteButton from '../../../common/components/WhiteButton';
 import TextInput from '../../../common/components/TextInput';
 
 const LoanSlider = () => {
-  const [loanAmount, setLoanAmount] = useState(5000);
-  const [term, setTerm] = useState(12);
+  const [loanAmount, setLoanAmount] = useState('5000');
+  const [term, setTerm] = useState('12');
+  const [monthlyAmount, setMonthlyAmount] = useState('416');
   const { t } = useTranslation();
+
+  const calculateButtonClicked = () => {
+    setMonthlyAmount(parseInt(loanAmount / term, 10));
+    Countly.add_event({
+      key: 'loanCalculate',
+      segmentation: { loanAmount, term },
+    });
+  };
+
 
   return (
     <div
@@ -73,13 +84,15 @@ const LoanSlider = () => {
           {t('home.loanSliderContent2')}
         </span>
         <span className="text-5xl font-bold">
-          { parseInt(loanAmount / term, 10) }
+          { monthlyAmount }
         €
           {' '}
           <span className="text-3xl">/ </span>
           <span className="text-lg">{t('home.loanSliderPerMonth')}</span>
         </span>
-        <WhiteButton className="w-1/2 m-auto" title={t('home.loanSliderButtonText')} />
+        <WhiteButton onClick={() => calculateButtonClicked()} className="w-1/2 m-auto mb-3" title="Calculate" />
+
+        <WhiteButton onClick={() => {}} className="w-1/2 m-auto" title={t('home.loanSliderButtonText')} />
       </div>
     </div>
   );

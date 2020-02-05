@@ -39,7 +39,7 @@ const Header = () => {
 
           <Link to="/internet-banking/login">
 
-            <GreenButton title={t('common.headerInternetBankingButtonText')} />
+            <GreenButton onClick={() => {}} title={t('common.headerInternetBankingButtonText')} />
 
           </Link>
 
