@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Countly from 'countly-sdk-web';
+import { toast } from 'react-toastify';
 import WhiteButton from '../../../common/components/WhiteButton';
 import TextInput from '../../../common/components/TextInput';
 
@@ -15,6 +16,14 @@ const LoanSlider = () => {
     Countly.add_event({
       key: 'loanCalculate',
       segmentation: { loanAmount, term },
+    });
+    toast(`"loanCalculate" event sent with "${loanAmount}" , "${term}" segmentation`, {
+      position: 'top-right',
+      autoClose: 50000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
     });
   };
 

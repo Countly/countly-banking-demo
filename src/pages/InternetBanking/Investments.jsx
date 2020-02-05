@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Countly from 'countly-sdk-web';
+import { toast } from 'react-toastify';
 import GreenButton from '../../common/components/GreenButton';
 import TextInput from '../../common/components/TextInput';
 
@@ -12,6 +13,14 @@ const Investments = () => {
     setStep(1);
     Countly.add_event({
       key: 'Investment',
+    });
+    toast('"Investment" event sent', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
     });
   };
 

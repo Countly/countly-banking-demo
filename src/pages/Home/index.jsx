@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Countly from 'countly-sdk-web';
+import { toast } from 'react-toastify';
 import countlyLogo from './images/countly.png';
 import Card from './components/Card';
 import savingImage from './images/saving.svg';
@@ -16,7 +17,6 @@ import './index.css';
 
 
 const Home = () => {
-
   const [activeTab, setActiveTab] = useState(0);
   const { t } = useTranslation();
 
@@ -25,6 +25,14 @@ const Home = () => {
     Countly.add_event({
       key: 'cardClick',
       segmentation: { type },
+    });
+    toast(`"cardClick" event sent with "${type}" segmentation`, {
+      position: 'top-right',
+      autoClose: 50000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
     });
   };
 

@@ -3,6 +3,7 @@ import { withTranslation } from 'react-i18next';
 import Steps from 'rc-steps';
 import 'rc-steps/assets/index.css';
 import Countly from 'countly-sdk-web';
+import { toast } from 'react-toastify';
 import GreenButton from '../../../common/components/GreenButton';
 import TextInput from '../../../common/components/TextInput';
 
@@ -82,6 +83,24 @@ const WireTransfer = () => {
   );
 
 
+  const finish = () => {
+    setCurrent(4);
+    Countly.add_event({
+      key: 'Transfer',
+      segmentation: { type: 'Wire Transfer' },
+    });
+    Countly.end_event('WireTransferOperation');
+    toast('"Transfer" event sent with "Wire Transfer" segmentation', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
+
+
   const lastStep = () => (
     <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-4 border border-gray-300 flex flex-col">
 
@@ -96,14 +115,6 @@ const WireTransfer = () => {
     </div>
   );
 
-
-  const finish = () => {
-    setCurrent(4);
-    Countly.add_event({
-      key: 'Transfer',
-      segmentation: { type: 'Wire Transfer' },
-    });
-  };
 
   return (
     <div className="w-2/3">

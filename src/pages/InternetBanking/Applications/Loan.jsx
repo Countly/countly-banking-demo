@@ -3,11 +3,11 @@ import { withTranslation } from 'react-i18next';
 import Steps from 'rc-steps';
 import 'rc-steps/assets/index.css';
 import Countly from 'countly-sdk-web';
+import { toast } from 'react-toastify';
 import GreenButton from '../../../common/components/GreenButton';
 import TextInput from '../../../common/components/TextInput';
 
 const Loan = () => {
-  Countly.start_event('LoanApplicationOperation');
   const [current, setCurrent] = useState(0);
 
   document.title = 'Loan';
@@ -21,8 +21,23 @@ const Loan = () => {
       key: 'Application',
       segmentation: { type: 'Loan' },
     });
+    toast('"Application" event sent with "Loan" segmentation', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
     Countly.end_event('LoanApplicationOperation');
-
+    toast('"LoanApplicationOperation" event ended to calculate duration', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
   };
 
 

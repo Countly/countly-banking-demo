@@ -14,11 +14,21 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import ATM from './pages/ATM';
 import Fees from './pages/Fees';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 class App extends React.Component {
   componentWillMount() {
     this.unlisten = this.props.history.listen((location, action) => {
       Countly.track_pageview(location.pathname);
+      toast(`${location.pathname} view tracked`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        });
     });
   }
 
@@ -30,6 +40,13 @@ class App extends React.Component {
     showCookieText: true,
   }
 
+  okButtonClicked = () => {
+    this.setState({ showCookieText: false });
+    Countly.group_features({
+      all:["sessions","events","views","scrolls","clicks","forms","crashes","attribution","users"]
+    });
+    Countly.add_consent("all");
+  }
 
 
 
@@ -40,7 +57,17 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-
+        <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop
+closeOnClick
+rtl={false}
+pauseOnVisibilityChange
+draggable
+pauseOnHover
+/>
         <Switch>
           <Route path="/countly-banking-demo" component={Home} exact />
 
@@ -80,7 +107,7 @@ class App extends React.Component {
             </label>
           </div>
 
-          <button type="button" onClick={() => this.setState({ showCookieText: false })} className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4">{t('common.cookieAreaButtonText')}</button>
+          <button type="button" onClick={() => this.okButtonClicked()} className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4">{t('common.cookieAreaButtonText')}</button>
         </div>
       </div>
     );

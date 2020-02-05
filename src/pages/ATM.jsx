@@ -5,6 +5,7 @@ import {
 } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Countly from 'countly-sdk-web';
+import { toast } from 'react-toastify';
 
 
 Leaflet.Icon.Default.imagePath = '../node_modules/leaflet';
@@ -32,19 +33,26 @@ const coordinates = [
 
 
 const ATM = () => {
-
-
   const [lat, setLat] = useState(41);
   const [lng, setLng] = useState(29);
 
 
   const locationChange = (e) => {
     const index = e.target.value;
+    const { city } = coordinates[index];
     setLat(coordinates[index].lat);
     setLng(coordinates[index].lng);
     Countly.add_event({
       key: 'atmSearch',
-      segmentation: { city: coordinates[index].city },
+      segmentation: { city },
+    });
+    toast(`"atmSearch" event sent with "${city}" segmentation`, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
     });
   };
 

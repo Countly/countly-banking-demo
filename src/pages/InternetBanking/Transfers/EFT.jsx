@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { withTranslation } from 'react-i18next';
 import Countly from 'countly-sdk-web';
+import { toast } from 'react-toastify';
 import TextInput from '../../../common/components/TextInput';
 import GreenButton from '../../../common/components/GreenButton';
 
@@ -14,6 +15,14 @@ const EFT = () => {
     Countly.add_event({
       key: 'Transfer',
       segmentation: { type: 'EFT' },
+    });
+    toast('"Transfer" event sent with "EFT" segmentation', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
     });
   };
 

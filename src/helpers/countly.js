@@ -3,7 +3,8 @@ import Countly from 'countly-sdk-web';
 class CountlyHelper {
   constructor() {
     Countly.init({
-      debug: false,
+      debug: true,
+      require_consent: true,
       app_key: '9e18c58f4514e632757be94b95d247cfdac34fbc',
       url: 'https://try.count.ly',
     });
@@ -12,7 +13,6 @@ class CountlyHelper {
     Countly.track_scrolls();
     Countly.track_forms();
     Countly.track_errors();
-
   }
 }
 

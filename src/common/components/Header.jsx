@@ -1,9 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
+import Countly from 'countly-sdk-web';
 import GreenButton from './GreenButton';
 
+
 const Header = () => {
+  const internetBankingClicked = () => {
+    Countly.start_event('LoginOperation');
+    toast('"LoginOperation" event started to calculate duration', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
+
   const { t } = useTranslation();
   return (
     <header>
@@ -37,7 +52,7 @@ const Header = () => {
             />
           </Link>
 
-          <Link to="/internet-banking/login">
+          <Link onClick={() => internetBankingClicked()} to="/internet-banking/login">
 
             <GreenButton onClick={() => {}} title={t('common.headerInternetBankingButtonText')} />
 

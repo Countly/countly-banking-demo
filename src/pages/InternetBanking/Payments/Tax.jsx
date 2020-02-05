@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import Countly from 'countly-sdk-web';
+import { toast } from 'react-toastify';
 import GreenButton from '../../../common/components/GreenButton';
 import TextInput from '../../../common/components/TextInput';
-import Countly from 'countly-sdk-web';
 
 const Tax = () => {
   document.title = 'Tax';
@@ -13,6 +14,14 @@ const Tax = () => {
     Countly.add_event({
       key: 'Payment',
       segmentation: { type: 'Tax' },
+    });
+    toast('"Payment" event sent with "Tax" segmentation', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
     });
   };
 

@@ -4,9 +4,36 @@ import { useTranslation } from 'react-i18next';
 import './index.css';
 import 'rc-menu/assets/index.css';
 import { Link } from 'react-router-dom';
+import Countly from 'countly-sdk-web';
+import { toast } from 'react-toastify';
 
 const Sidebar = () => {
   const { t } = useTranslation();
+
+  const startWireTransferOperation = () => {
+    Countly.start_event('WireTransferOperation');
+    toast('"WireTransferOperation" event started to calculate duration', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
+
+
+  const startLoanApplicationOperation = () => {
+    Countly.start_event('startLoanApplicationOperation');
+    toast('"startLoanApplicationOperation" event started to calculate duration', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
 
   return (
     <div className="sidebar w-1/6 text-white">
@@ -17,7 +44,7 @@ const Sidebar = () => {
         <SubMenu title={<span>{t('internetbanking.transfers')}</span>} key="1">
 
           <MenuItem className="p-3" key="1-1">
-            <Link to="/internet-banking/transfers/wire-transfer">
+            <Link onClick={() => startWireTransferOperation()} to="/internet-banking/transfers/wire-transfer">
               {t('internetbanking.wireTransfer')}
             </Link>
           </MenuItem>
@@ -58,7 +85,7 @@ const Sidebar = () => {
               {t('internetbanking.creditCard')}
             </Link>
           </MenuItem>
-          <MenuItem key="5-2"><Link to="/internet-banking/applications/loan">{t('internetbanking.loan')}</Link></MenuItem>
+          <MenuItem key="5-2"><Link onClick={ () => startLoanApplicationOperation() } to="/internet-banking/applications/loan">{t('internetbanking.loan')}</Link></MenuItem>
           <MenuItem key="5-3"><Link to="/internet-banking/applications/insurance">{t('internetbanking.insurance')}</Link></MenuItem>
         </SubMenu>
 

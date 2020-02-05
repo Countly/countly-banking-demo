@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Countly from 'countly-sdk-web';
+import { toast } from 'react-toastify';
 import GreenButton from '../../common/components/GreenButton';
 import TextInput from '../../common/components/TextInput';
 
 
 const Login = (props) => {
-  Countly.start_event('LoginOperation');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
@@ -24,12 +24,28 @@ const Login = (props) => {
         count: 1,
         segmentation: { username },
       });
+      toast(`"wrongAuthData" event sent with "${username}" segmentation`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
     }
   };
 
   const signInClicked = () => {
     if (verificationCode === '346578') {
       Countly.end_event('LoginOperation');
+      toast('"LoginOperation" event ended to calculate duration', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
       fetch('https://randomuser.me/api/')
         .then((response) => response.json())
         .then(({ results }) => {
@@ -53,6 +69,14 @@ const Login = (props) => {
       Countly.add_event({
         key: 'wrongVerificationCode',
         count: 1,
+      });
+      toast('"wrongVerificationCode" event sent', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
       });
     }
   };
