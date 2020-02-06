@@ -18,7 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
 class App extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     this.unlisten = this.props.history.listen((location, action) => {
       Countly.track_pageview(location.pathname);
       toast(`${location.pathname} view tracked`, {
@@ -30,6 +30,7 @@ class App extends React.Component {
         draggable: true,
         });
     });
+    this.checkConsest()
   }
 
   componentWillUnmount() {
@@ -40,11 +41,29 @@ class App extends React.Component {
     showCookieText: true,
   }
 
+  checkConsest = () => {
+    if (typeof (localStorage) !== 'undefined') {
+      const consents = localStorage.getItem('consents');
+      // checking if user already provided consent
+      if (consents) {
+        this.setState({ showCookieText :false })
+        Countly.add_consent(JSON.parse(consents));
+      } else {
+        this.setState({ showCookieText :true })
+      }
+    } else {
+      // Sorry! No Web Storage support..
+      // we can fallback to cookie
+    }
+  }
+
   okButtonClicked = () => {
     this.setState({ showCookieText: false });
+    const all = ["sessions","events","views","scrolls","clicks","forms","crashes","attribution","users"];
     Countly.group_features({
-      all:["sessions","events","views","scrolls","clicks","forms","crashes","attribution","users"]
+      all
     });
+    localStorage.setItem('consents', JSON.stringify(all));
     Countly.add_consent("all");
   }
 
