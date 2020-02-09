@@ -7,7 +7,7 @@
         "cookieAreaText3": "Marketing",
         "cookieAreaButtonText": "OK",
         "headerHomeButtonText" : "Home",
-        "headerInternetBankingButtonText" : "Internet Banking",
+        "headerInternetBankingButtonText" : "Internet Banking for Existing Customer",
         "headerLinkText1" : "About Count Bank",
         "headerLinkText2" : "Contact US",
         "headerLinkText3" : "ATM & Branches",
@@ -15,7 +15,7 @@
     },
     "home": {
         "countlyCard" : "Countly",
-        "customerCard" : "Be a Customer",
+        "customerCard" : "New Customer",
         "accountCard" : "Account",
         "loanCard" : "Loan",
         "savingCard" : "Saving",
@@ -51,8 +51,8 @@
 
     },
     "internetbanking": { 
-        "transfers": "Transfers",
-        "wireTransfer": "Wire Transfer",
+        "transfers": "Money Transfer",
+        "wireTransfer": "To Countly Bank",
         "eft": "EFT",
         "swift": "SWIFT",
         "payments" : "Payments",
