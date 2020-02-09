@@ -14,7 +14,16 @@ const Insurance = () => {
       key: 'Application',
       segmentation: { type: 'Insurance' },
     });
-    toast('"Application" event sent with "Insurance" segmentation', {
+    toast(<div>
+      {' '}
+      <strong> Application</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>Insurance</strong>
+      {' '}
+segmentation
+    </div>,{
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

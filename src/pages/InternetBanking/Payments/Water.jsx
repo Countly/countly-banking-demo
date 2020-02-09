@@ -16,7 +16,16 @@ const Water = () => {
       key: 'Util',
       segmentation: { type: 'Water' },
     });
-    toast('"Util" event sent with "Water" segmentation', {
+    toast(<div>
+      {' '}
+      <strong>Util</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>Water</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

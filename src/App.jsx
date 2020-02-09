@@ -21,7 +21,7 @@ class App extends React.Component {
   componentDidMount() {
     this.unlisten = this.props.history.listen((location, action) => {
       Countly.track_pageview(location.pathname);
-      toast(`${location.pathname} view tracked`, {
+      toast(<div><strong>{location.pathname}</strong> view tracked</div>, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: true,

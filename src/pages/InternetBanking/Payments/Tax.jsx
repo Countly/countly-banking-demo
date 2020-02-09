@@ -15,7 +15,16 @@ const Tax = () => {
       key: 'Payment',
       segmentation: { type: 'Tax' },
     });
-    toast('"Payment" event sent with "Tax" segmentation', {
+    toast(<div>
+      {' '}
+      <strong>Payment</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>Tax</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

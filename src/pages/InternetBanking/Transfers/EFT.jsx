@@ -16,7 +16,16 @@ const EFT = () => {
       key: 'Transfer',
       segmentation: { type: 'EFT' },
     });
-    toast('"Transfer" event sent with "EFT" segmentation', {
+    toast(<div>
+      {' '}
+      <strong>Transfer</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>EFT</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

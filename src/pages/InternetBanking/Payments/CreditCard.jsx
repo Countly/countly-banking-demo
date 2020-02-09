@@ -15,7 +15,16 @@ const CreditCard = () => {
       key: 'Payment',
       segmentation: { type: 'CreditCard' },
     });
-    toast('"Payment" event sent with "CreditCard" segmentation', {
+    toast(<div>
+      {' '}
+      <strong>Payment</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>Credit Card</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

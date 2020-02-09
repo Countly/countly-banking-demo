@@ -14,7 +14,13 @@ const Investments = () => {
     Countly.add_event({
       key: 'Investment',
     });
-    toast('"Investment" event sent', {
+    toast(<div>
+      <strong>
+      Investment
+      </strong>
+      {' '}
+event sent
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

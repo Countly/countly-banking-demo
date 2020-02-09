@@ -12,7 +12,14 @@ const Sidebar = () => {
 
   const startWireTransferOperation = () => {
     Countly.start_event('WireTransferOperation');
-    toast('"WireTransferOperation" event started to calculate duration', {
+    toast(<div>
+      {' '}
+      <strong>WireTransfer Operation</strong>
+      {' '}
+event start to calculate
+      {' '}
+      <strong>duration</strong>
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,
@@ -25,7 +32,14 @@ const Sidebar = () => {
 
   const startLoanApplicationOperation = () => {
     Countly.start_event('startLoanApplicationOperation');
-    toast('"startLoanApplicationOperation" event started to calculate duration', {
+    toast(<div>
+      {' '}
+      <strong>startLoanApplicationOperation</strong>
+      {' '}
+event start to calculate
+      {' '}
+      <strong>duration</strong>
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,
@@ -85,7 +99,7 @@ const Sidebar = () => {
               {t('internetbanking.creditCard')}
             </Link>
           </MenuItem>
-          <MenuItem key="5-2"><Link onClick={ () => startLoanApplicationOperation() } to="/internet-banking/applications/loan">{t('internetbanking.loan')}</Link></MenuItem>
+          <MenuItem key="5-2"><Link onClick={() => startLoanApplicationOperation()} to="/internet-banking/applications/loan">{t('internetbanking.loan')}</Link></MenuItem>
           <MenuItem key="5-3"><Link to="/internet-banking/applications/insurance">{t('internetbanking.insurance')}</Link></MenuItem>
         </SubMenu>
 

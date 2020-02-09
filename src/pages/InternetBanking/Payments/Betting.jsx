@@ -15,7 +15,16 @@ const Betting = () => {
       key: 'Payment',
       segmentation: { type: 'Betting' },
     });
-    toast('"Payment" event sent with "Betting" segmentation', {
+    toast(<div>
+      {' '}
+      <strong>Payment</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>Betting</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

@@ -15,7 +15,16 @@ const Electric = () => {
       key: 'Util',
       segmentation: { type: 'Electric' },
     });
-    toast('"Util" event sent with "Electric" segmentation', {
+    toast(<div>
+      {' '}
+      <strong>Util</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>Electric</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

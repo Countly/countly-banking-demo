@@ -90,7 +90,31 @@ const WireTransfer = () => {
       segmentation: { type: 'Wire Transfer' },
     });
     Countly.end_event('WireTransferOperation');
-    toast('"Transfer" event sent with "Wire Transfer" segmentation', {
+    toast(<div>
+      {' '}
+      <strong>WireTransfer Operation</strong>
+      {' '}
+event end to calculate
+      {' '}
+      <strong>duration</strong>
+    </div>, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+    toast(<div>
+      {' '}
+      <strong>Transfer</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>Wire Transfer</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

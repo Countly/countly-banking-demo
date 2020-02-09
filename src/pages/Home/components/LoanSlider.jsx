@@ -17,7 +17,23 @@ const LoanSlider = () => {
       key: 'loanCalculate',
       segmentation: { loanAmount, term },
     });
-    toast(`"loanCalculate" event sent with "${loanAmount}" , "${term}" segmentation`, {
+    toast(<div>
+      <strong>loanCalculate</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>
+        {loanAmount}
+        {' '}
+      </strong>
+,
+      {' '}
+      <strong>
+        {term}
+        {' '}
+      </strong>
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 50000,
       hideProgressBar: true,

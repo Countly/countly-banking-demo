@@ -24,7 +24,16 @@ const Login = (props) => {
         count: 1,
         segmentation: { username },
       });
-      toast(`"wrongAuthData" event sent with "${username}" segmentation`, {
+      toast(<div>
+        {' '}
+        <strong>wrongAuthData</strong>
+        {' '}
+event sent with
+        {' '}
+        <strong>{username}</strong>
+        {' '}
+segmentation
+      </div>, {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: true,
@@ -38,7 +47,14 @@ const Login = (props) => {
   const signInClicked = () => {
     if (verificationCode === '346578') {
       Countly.end_event('LoginOperation');
-      toast('"LoginOperation" event ended to calculate duration', {
+      toast(<div>
+        {' '}
+        <strong>LoginOperation</strong>
+        {' '}
+event ended to calculate
+        {' '}
+        <strong>duration</strong>
+            </div>, {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: true,
@@ -70,7 +86,11 @@ const Login = (props) => {
         key: 'wrongVerificationCode',
         count: 1,
       });
-      toast('"wrongVerificationCode" event sent', {
+      toast(<div>
+        <strong>wrongVerificationCode</strong>
+        {' '}
+event sent
+      </div>, {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: true,

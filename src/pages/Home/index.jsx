@@ -26,9 +26,18 @@ const Home = () => {
       key: 'cardClick',
       segmentation: { type },
     });
-    toast(`"cardClick" event sent with "${type}" segmentation`, {
+    toast(<div>
+      {' '}
+      <strong> cardClick</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>{type}</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
-      autoClose: 50000,
+      autoClose: 5000,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,

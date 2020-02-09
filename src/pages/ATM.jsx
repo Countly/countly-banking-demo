@@ -46,7 +46,16 @@ const ATM = () => {
       key: 'atmSearch',
       segmentation: { city },
     });
-    toast(`"atmSearch" event sent with "${city}" segmentation`, {
+    toast(<div>
+      {' '}
+      <strong> atmSearch</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>{city}</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

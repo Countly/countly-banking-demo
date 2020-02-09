@@ -21,7 +21,16 @@ const Loan = () => {
       key: 'Application',
       segmentation: { type: 'Loan' },
     });
-    toast('"Application" event sent with "Loan" segmentation', {
+    toast(<div>
+      {' '}
+      <strong> Application</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>Loan</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,
@@ -30,7 +39,14 @@ const Loan = () => {
       draggable: true,
     });
     Countly.end_event('LoanApplicationOperation');
-    toast('"LoanApplicationOperation" event ended to calculate duration', {
+    toast(<div>
+      {' '}
+      <strong>LoanApplicationOperation</strong>
+      {' '}
+event ended to calculate
+      {' '}
+      <strong>duration</strong>
+          </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

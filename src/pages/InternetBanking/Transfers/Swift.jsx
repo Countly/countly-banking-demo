@@ -16,7 +16,16 @@ const Swift = () => {
       key: 'Transfer',
       segmentation: { type: 'Swift' },
     });
-    toast('"Transfer" event sent with "Swift" segmentation', {
+    toast(<div>
+      {' '}
+      <strong>Transfer</strong>
+      {' '}
+event sent with
+      {' '}
+      <strong>Swift</strong>
+      {' '}
+segmentation
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

@@ -9,7 +9,14 @@ import GreenButton from './GreenButton';
 const Header = () => {
   const internetBankingClicked = () => {
     Countly.start_event('LoginOperation');
-    toast('"LoginOperation" event started to calculate duration', {
+    toast(<div>
+      {' '}
+      <strong>LoginOperation</strong>
+      {' '}
+event started to calculate
+      {' '}
+      <strong>duration</strong>
+          </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,
