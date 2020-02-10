@@ -53,7 +53,7 @@
     "internetbanking": { 
         "transfers": "Money Transfer",
         "wireTransfer": "To Countly Bank",
-        "eft": "EFT",
+        "eft": "To Another Bank",
         "swift": "SWIFT",
         "payments" : "Payments",
         "products" : "Products",
