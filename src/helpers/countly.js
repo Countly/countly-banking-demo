@@ -5,8 +5,8 @@ class CountlyHelper {
     Countly.init({
       debug: true,
       require_consent: true,
-      app_key: '9e18c58f4514e632757be94b95d247cfdac34fbc',
-      url: 'https://try.count.ly',
+      app_key: '57a1a2d37c68b0f0238076f5f144ed8fee5a3a04',
+      url: 'https://demo.count.ly',
     });
     Countly.track_sessions();
     Countly.track_clicks();
