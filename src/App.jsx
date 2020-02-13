@@ -88,7 +88,7 @@ draggable
 pauseOnHover
 />
         <Switch>
-          <Route path="/countly-banking-demo" component={Home} exact />
+          <Route path="/" component={Home} exact />
 
           <Route path="/about" component={About} exact />
 

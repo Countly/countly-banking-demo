@@ -51,7 +51,7 @@ event started to calculate
         </nav>
 
         <div className="p-3 flex justify-between shadow items-center">
-          <Link to="/countly-banking-demo">
+          <Link to="/">
             <img
               width="200"
               alt="countly logo"
