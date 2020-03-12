@@ -13,3 +13,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Toastify__toast-body{
+  color: #0B131A;
+}
+.Toastify__toast-body strong{
+  color: #12ab47;
+}

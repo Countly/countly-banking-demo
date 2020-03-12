@@ -78,7 +78,7 @@ event ended to calculate
           });
         });
 
-      Countly.change_id('myNewId');
+      Countly.change_id('myNewId', true);
       props.history.push('/internet-banking');
     } else {
       window.alert('Wrong verification code');

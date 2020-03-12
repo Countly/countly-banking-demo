@@ -3,16 +3,18 @@ import Countly from 'countly-sdk-web';
 class CountlyHelper {
   constructor() {
     Countly.init({
-      debug: true,
+      debug: false,
       require_consent: true,
       app_key: '57a1a2d37c68b0f0238076f5f144ed8fee5a3a04',
       url: 'https://demo.count.ly',
+      interval: 100,
     });
     Countly.track_sessions();
     Countly.track_clicks();
     Countly.track_scrolls();
     Countly.track_forms();
     Countly.track_errors();
+    Countly.track_links();
   }
 }
 
