@@ -17,6 +17,7 @@ import Fees from './pages/Fees';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
+
 class App extends React.Component {
   componentDidMount() {
     this.unlisten = this.props.history.listen((location, action) => {

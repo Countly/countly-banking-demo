@@ -17,6 +17,8 @@ const LoanSlider = () => {
       key: 'loanCalculate',
       segmentation: { loanAmount, term },
     });
+    Countly.q.push(['userData.push', 'loanCalculate', "Loan : " + loanAmount + "  Term : " + term])
+    Countly.q.push(['userData.save']) //send userData to server
     toast(<div>
       <strong>loanCalculate</strong>
       {' '}

@@ -24,6 +24,8 @@ const Login = (props) => {
         count: 1,
         segmentation: { username },
       });
+      Countly.q.push(['userData.increment', "WrongLoginCount"])
+      Countly.q.push(['userData.save']) //send userData to server
       toast(<div>
         {' '}
         <strong>wrongAuthData</strong>
@@ -79,6 +81,8 @@ event ended to calculate
         });
 
       Countly.change_id('myNewId', true);
+      Countly.q.push(['userData.increment', "SuccessfulLoginCount"])
+      Countly.q.push(['userData.save']) //send userData to server
       props.history.push('/internet-banking');
     } else {
       window.alert('Wrong verification code');
@@ -86,6 +90,8 @@ event ended to calculate
         key: 'wrongVerificationCode',
         count: 1,
       });
+      Countly.q.push(['userData.increment', "WrongVerificationCount"]);
+      Countly.q.push(['userData.save']) //send userData to server
       toast(<div>
         <strong>wrongVerificationCode</strong>
         {' '}
