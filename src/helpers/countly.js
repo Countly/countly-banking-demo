@@ -15,7 +15,7 @@ class CountlyHelper {
     Countly.track_forms();
     Countly.track_errors();
     Countly.track_links();
-    Countly.enable_feedback({'widgets':['5e6a26d66199db32c86c253f']});
+    Countly.enable_feedback({ widgets: ['5e6a26d66199db32c86c253f'] });
   }
 }
 

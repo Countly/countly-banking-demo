@@ -90,6 +90,7 @@ const WireTransfer = () => {
       segmentation: { type: 'Wire Transfer' },
     });
     Countly.end_event('WireTransferOperation');
+    Countly.show_feedback_popup('5e6a2ed46199db32c86c25ab');
     toast(<div>
       {' '}
       <strong>WireTransfer Operation</strong>
