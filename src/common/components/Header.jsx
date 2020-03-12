@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
@@ -7,6 +7,13 @@ import GreenButton from './GreenButton';
 
 
 const Header = () => {
+  const [currency, setCurrency] = useState({});
+  Countly.fetch_remote_config((err, remoteConfigs) => {
+    if (!err) {
+      setCurrency(remoteConfigs);
+    }
+  });
+
   const internetBankingClicked = () => {
     Countly.start_event('LoginOperation');
     toast(<div>
@@ -25,8 +32,8 @@ event started to calculate
       draggable: true,
     });
   };
-
   const { t } = useTranslation();
+
   return (
     <header>
       <div className="w-full">
@@ -36,7 +43,6 @@ event started to calculate
               <Link to="/about">{t('common.headerLinkText1')}</Link>
             </li>
             <span className="text-gray-500 mx-2">|</span>
-
             <li className="inline-block mx-4">
               <Link to="/contact">{t('common.headerLinkText2')}</Link>
             </li>
@@ -44,6 +50,21 @@ event started to calculate
             <li className="inline-block mx-4">
               <Link to="/atm">{t('common.headerLinkText3')}</Link>
             </li>
+            <span className="text-gray-500 mx-4">|</span>
+
+            <span className="text-countly-800 font-bold">
+            $
+              {' '}
+              {currency.usd}
+            </span>
+            <span className="text-gray-500 mx-4">|</span>
+
+            <span className="text-red-800 font-bold m-auto">
+            ₺
+              {' '}
+              {currency.try}
+            </span>
+
             <li className="hidden md:inline-block mr-4 float-right">
               <Link to="/fees">{t('common.headerLinkText4')}</Link>
             </li>
