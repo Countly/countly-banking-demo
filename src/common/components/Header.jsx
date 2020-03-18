@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
@@ -8,11 +8,15 @@ import GreenButton from './GreenButton';
 
 const Header = () => {
   const [currency, setCurrency] = useState({});
-  Countly.fetch_remote_config((err, remoteConfigs) => {
-    if (!err) {
-      setCurrency(remoteConfigs);
-    }
-  });
+
+  useEffect(() => {
+    Countly.fetch_remote_config((err, remoteConfigs) => {
+      if (!err) {
+        setCurrency(remoteConfigs);
+      }
+    });
+  }, []);
+
 
   const internetBankingClicked = () => {
     Countly.start_event('LoginOperation');

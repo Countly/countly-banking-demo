@@ -9,11 +9,17 @@ const Swift = () => {
   document.title = 'Swift';
 
   const [step, setStep] = useState(0);
+  const [sum, setSum] = useState(0);
+
+  const updateSum = (e) => {
+    setSum(e.target.value);
+  }
 
   const sendSwift = () => {
     setStep(1);
     Countly.add_event({
       key: 'Transfer',
+      sum,
       segmentation: { type: 'Swift' },
     });
     toast(<div>
@@ -68,7 +74,7 @@ segmentation
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="iban">
         Amount
             </label>
-            <TextInput id="text" type="text" className="w-full" />
+            <TextInput id="text" type="text" value={sum} onChange={updateSum} className="w-full" />
           </div>
 
           <div className="flex items-center justify-between">

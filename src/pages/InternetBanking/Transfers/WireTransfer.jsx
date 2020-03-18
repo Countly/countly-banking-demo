@@ -7,13 +7,17 @@ import { toast } from 'react-toastify';
 import GreenButton from '../../../common/components/GreenButton';
 import TextInput from '../../../common/components/TextInput';
 
+
 const WireTransfer = () => {
   const [current, setCurrent] = useState(0);
-
+  const [sum, setSum] = useState(0);
   document.title = 'Wire Transfer';
 
   const { Step } = Steps;
 
+  const updateSum = (e) => {
+    setSum(e.target.value);
+  }
 
   const firstStep = () => (
     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-4 border border-gray-300">
@@ -21,19 +25,19 @@ const WireTransfer = () => {
         <label htmlFor="recipientName" className="block text-gray-700 text-sm font-bold mb-2">
     Recipient Name
         </label>
-        <TextInput id="recipientName" className="w-full" type="text" />
+        <TextInput id="recipientName" onChange={() => {}} className="w-full" type="text" />
       </div>
       <div className="mb-6">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="iban">
     Recipient IBAN
         </label>
-        <TextInput id="text" type="text" className="w-full" />
+        <TextInput id="text" onChange={() => {}} type="text" className="w-full" />
       </div>
       <div className="mb-6">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="iban">
     Recipient Account No
         </label>
-        <TextInput id="text" type="text" className="w-full" />
+        <TextInput id="text" onChange={() => {}} type="text" className="w-full" />
       </div>
       <div className="flex items-center justify-between">
         <GreenButton onClick={() => setCurrent(1)} title="next" />
@@ -72,7 +76,7 @@ const WireTransfer = () => {
         <label htmlFor="amount" className="block text-gray-700 text-sm font-bold mb-2">
     Amount
         </label>
-        <TextInput id="amount" className="w-full" type="text" />
+        <TextInput id="amount" value={sum} onChange={updateSum} className="w-full" type="text" />
       </div>
 
       <div className="flex items-center justify-between">
@@ -87,6 +91,7 @@ const WireTransfer = () => {
     setCurrent(4);
     Countly.add_event({
       key: 'Transfer',
+      sum,
       segmentation: { type: 'Wire Transfer' },
     });
     Countly.end_event('WireTransferOperation');
@@ -143,7 +148,6 @@ segmentation
 
   return (
     <div className="w-2/3">
-
       <Steps progressDot className="border border-gray-300" type="navigation" current={current} onChange={() => setCurrent(current)}>
         <Step title="Recipient Account" />
         <Step title="Sending Account" />

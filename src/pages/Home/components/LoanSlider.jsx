@@ -11,13 +11,35 @@ const LoanSlider = () => {
   const [monthlyAmount, setMonthlyAmount] = useState('416');
   const { t } = useTranslation();
 
+
+  const calculateDate = () => {
+    Number.prototype.padding = function (base, chr) {
+      const len = (String(base || 10).length
+                  - String(this).length) + 1;
+
+      return len > 0 ? new Array(len).join(chr || '0')
+              + this : this;
+    };
+
+    const d = new Date();
+
+    const str = `${[(d.getMonth() + 1).padding(),
+      d.getDate().padding(),
+      d.getFullYear()].join('/')
+    } ${[d.getHours().padding(),
+      d.getMinutes().padding(),
+      d.getSeconds().padding()].join(':')}`;
+    return str;
+  };
+
   const calculateButtonClicked = () => {
+    calculateDate();
     setMonthlyAmount(parseInt(loanAmount / term, 10));
     Countly.add_event({
       key: 'loanCalculate',
       segmentation: { loanAmount, term },
     });
-    Countly.q.push(['userData.push', 'loanCalculate', `Loan : ${loanAmount}  Term : ${term}`]);
+    Countly.q.push(['userData.push', 'loanCalculate', `Loan : ${loanAmount}  Term : ${term}  Date : ${calculateDate()}`]);
     Countly.q.push(['userData.save']); // send userData to server
     toast(<div>
       <strong>loanCalculate</strong>

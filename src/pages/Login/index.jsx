@@ -80,7 +80,7 @@ event ended to calculate
           });
         });
 
-      Countly.change_id('myNewId', true);
+      Countly.change_id(Math.floor(Math.random() * Math.floor(15)), true);
       Countly.q.push(['userData.increment', "SuccessfulLoginCount"])
       Countly.q.push(['userData.save']) //send userData to server
       props.history.push('/internet-banking');
