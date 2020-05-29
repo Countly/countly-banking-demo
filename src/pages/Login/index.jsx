@@ -4,46 +4,51 @@ import Countly from 'countly-sdk-web';
 import { toast } from 'react-toastify';
 import GreenButton from '../../common/components/GreenButton';
 import TextInput from '../../common/components/TextInput';
-
+import axios from 'axios';
 
 const Login = (props) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const [step, setStep] = useState(1);
+  const [user, setUser] = useState({});
   const { t } = useTranslation();
 
 
-  const goSecondStep = () => {
-    if (username === '123987' && password === '123456') {
-      setStep(2);
-    } else {
-      window.alert('Wrong username or password');
-      Countly.add_event({
-        key: 'wrongAuthData',
-        count: 1,
-        segmentation: { username },
+  const goSecondStep =  () => {
+    axios.post('https://countly-banking-backend.now.sh/user/login', { username, password })
+      .then((response) => {
+        if(response.data.username){
+          setUser(response.data);
+          setStep(2);
+        }else {
+          window.alert('Wrong username or password');
+          Countly.add_event({
+            key: 'wrongAuthData',
+            count: 1,
+            segmentation: { username },
+          });
+          Countly.q.push(['userData.increment', "WrongLoginCount"])
+          Countly.q.push(['userData.save']) //send userData to server
+          toast(<div>
+            {' '}
+            <strong>wrongAuthData</strong>
+            {' '}
+    event sent with
+            {' '}
+            <strong>{username}</strong>
+            {' '}
+    segmentation
+          </div>, {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
       });
-      Countly.q.push(['userData.increment', "WrongLoginCount"])
-      Countly.q.push(['userData.save']) //send userData to server
-      toast(<div>
-        {' '}
-        <strong>wrongAuthData</strong>
-        {' '}
-event sent with
-        {' '}
-        <strong>{username}</strong>
-        {' '}
-segmentation
-      </div>, {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-    }
   };
 
   const signInClicked = () => {
@@ -64,23 +69,19 @@ event ended to calculate
         pauseOnHover: true,
         draggable: true,
       });
-      fetch('https://randomuser.me/api/')
-        .then((response) => response.json())
-        .then(({ results }) => {
-          const data = results[0];
-          Countly.user_details({
-            name: `${data.name.first} ${data.name.last}`,
-            username: data.login.username,
-            email: data.email,
-            organization: 'Countly',
-            phone: '+37112345678',
-            picture: data.picture.large,
-            gender: data.male,
-            byear: 1987,
-          });
-        });
 
-      Countly.change_id(Math.floor(Math.random() * Math.floor(15)), true);
+      Countly.user_details({
+        name: user.name,
+        username: user.username,
+        email: user.email,
+        phone: user.phone,
+        picture: user.picture,
+        gender: user.gender,
+        byear: user.byear,
+      });
+  
+
+      Countly.change_id(user.customerID, true);
       Countly.q.push(['userData.increment', "SuccessfulLoginCount"])
       Countly.q.push(['userData.save']) //send userData to server
       props.history.push('/internet-banking');

@@ -1,9 +1,10 @@
 import Countly from 'countly-sdk-web';
 
+
 class CountlyHelper {
   constructor() {
     Countly.init({
-      debug: true,
+      debug: false,
       require_consent: true,
       app_key: '57a1a2d37c68b0f0238076f5f144ed8fee5a3a04',
       url: 'https://demo.count.ly',
@@ -17,6 +18,8 @@ class CountlyHelper {
     Countly.track_errors();
     Countly.track_links();
     Countly.enable_feedback({ widgets: ['5e6a26d66199db32c86c253f'] });
+
+
   }
 }
 
