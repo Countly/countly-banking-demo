@@ -16,7 +16,15 @@ const Login = (props) => {
 
 
   const goSecondStep =  () => {
-    axios.post('https://countly-banking-backend.now.sh/user/login', { username, password })
+    axios({
+      url : 'https://api.banking-demo.tools.count.ly/user/login',
+      method: "POST",
+       data : {username, password} ,
+       headers: {
+        'Content-Type': 'application/json',
+      },
+      crossDomain: true
+      })
       .then((response) => {
         if(response.data.username){
           setUser(response.data);
