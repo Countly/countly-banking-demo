@@ -8,9 +8,8 @@ const AccountSlider = () => {
   const { t } = useTranslation();
   const crash = () => {
     try {
-      this.bind()
-    }
-    catch(err) {
+      this.bind();
+    } catch (err) {
       Countly.log_error(err);
     }
   };

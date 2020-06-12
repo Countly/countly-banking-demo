@@ -23,7 +23,7 @@ event sent with
       <strong>Insurance</strong>
       {' '}
 segmentation
-    </div>,{
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,

@@ -17,7 +17,7 @@ const WireTransfer = () => {
 
   const updateSum = (e) => {
     setSum(e.target.value);
-  }
+  };
 
   const firstStep = () => (
     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-4 border border-gray-300">

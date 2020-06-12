@@ -4,14 +4,18 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Countly from 'countly-sdk-web';
 import GreenButton from './GreenButton';
+import banner from '../../banner.png';
+import banner2 from '../../banner2.png'
 
 
 const Header = () => {
   const [currency, setCurrency] = useState({});
+  const [ selectedBanner, setBanner ] = useState({});
 
   useEffect(() => {
     Countly.fetch_remote_config((err, remoteConfigs) => {
       if (!err) {
+        setBanner(remoteConfigs.banner);
         setCurrency(remoteConfigs);
       }
     });
@@ -93,6 +97,7 @@ event started to calculate
 
         </div>
       </div>
+      <img src={selectedBanner === 1 ? banner : banner2} className="img-fluid" alt="" />
     </header>
   );
 };

@@ -13,7 +13,7 @@ const EFT = () => {
 
   const updateSum = (e) => {
     setSum(e.target.value);
-  }
+  };
 
   const sendEFT = () => {
     setStep(1);

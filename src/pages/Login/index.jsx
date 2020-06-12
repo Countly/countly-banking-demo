@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Countly from 'countly-sdk-web';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 import GreenButton from '../../common/components/GreenButton';
 import TextInput from '../../common/components/TextInput';
-import axios from 'axios';
 
 const Login = (props) => {
-  const [username, setUsername] = useState('');
+  const [customerID, setCustomerID] = useState('');
   const [password, setPassword] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const [step, setStep] = useState(1);
@@ -15,36 +15,36 @@ const Login = (props) => {
   const { t } = useTranslation();
 
 
-  const goSecondStep =  () => {
+  const goSecondStep = () => {
     axios({
-      url : 'https://api.banking-demo.tools.count.ly/user/login',
-      method: "POST",
-       data : {username, password} ,
-       headers: {
+      url: 'https://api.banking-demo.tools.count.ly/user/login',
+      method: 'POST',
+      data: { customerID, password },
+      headers: {
         'Content-Type': 'application/json',
       },
-      crossDomain: true
-      })
+      crossDomain: true,
+    })
       .then((response) => {
-        if(response.data.username){
+        if (response.data.customerID) {
           setUser(response.data);
           setStep(2);
-        }else {
-          window.alert('Wrong username or password');
+        } else {
+          window.alert('Wrong customerID or password');
           Countly.add_event({
             key: 'wrongAuthData',
             count: 1,
-            segmentation: { username },
+            segmentation: { customerID },
           });
-          Countly.q.push(['userData.increment', "WrongLoginCount"])
-          Countly.q.push(['userData.save']) //send userData to server
+          Countly.q.push(['userData.increment', 'WrongLoginCount']);
+          Countly.q.push(['userData.save']); // send userData to server
           toast(<div>
             {' '}
             <strong>wrongAuthData</strong>
             {' '}
     event sent with
             {' '}
-            <strong>{username}</strong>
+            <strong>{customerID}</strong>
             {' '}
     segmentation
           </div>, {
@@ -80,18 +80,19 @@ event ended to calculate
 
       Countly.user_details({
         name: user.name,
-        username: user.username,
         email: user.email,
         phone: user.phone,
         picture: user.picture,
         gender: user.gender,
         byear: user.byear,
       });
-  
+
 
       Countly.change_id(user.customerID, true);
-      Countly.q.push(['userData.increment', "SuccessfulLoginCount"])
-      Countly.q.push(['userData.save']) //send userData to server
+      Countly.q.push(['userData.increment', 'SuccessfulLoginCount']);
+      Countly.q.push(['userData.set', 'Has Loan', user.hasLoan]);
+      Countly.q.push(['userData.set', 'Has Credit Card', user.hasCreditCard]);
+      Countly.q.push(['userData.save']);
       props.history.push('/internet-banking');
     } else {
       window.alert('Wrong verification code');
@@ -99,8 +100,8 @@ event ended to calculate
         key: 'wrongVerificationCode',
         count: 1,
       });
-      Countly.q.push(['userData.increment', "WrongVerificationCount"]);
-      Countly.q.push(['userData.save']) //send userData to server
+      Countly.q.push(['userData.increment', 'WrongVerificationCount']);
+      Countly.q.push(['userData.save']); // send userData to server
       toast(<div>
         <strong>wrongVerificationCode</strong>
         {' '}
@@ -122,15 +123,12 @@ event sent
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="customerId">
             { t('login.customerId') }
-(123987)
           </label>
-          <TextInput id="customerId" onChange={(e) => setUsername(e.target.value)} value={username} className="w-full" type="text" placeholder="customer Id" />
+          <TextInput id="customerId" onChange={(e) => setCustomerID(e.target.value)} value={customerID} className="w-full" type="text" placeholder="customer Id" />
         </div>
         <div className="mb-6">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
             { t('login.password') }
-(123456)
-
           </label>
           <TextInput id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full" placeholder="******************" />
         </div>

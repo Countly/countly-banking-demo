@@ -11,7 +11,7 @@ const Card = (props) => {
       className="select-none rounded overflow-hidden shadow-lg bg-gray-300 p-4 m-2 bg-white w-1/3 lg:w-1/4 xl:w-1/6 cursor-pointer"
       style={{
         backgroundColor: isActive ? '#e2e8f0' : 'white',
-        border: isActive ? `1px #13b94d solid` : '1px #E2E8F0 solid',
+        border: isActive ? '1px #13b94d solid' : '1px #E2E8F0 solid',
       }}
       onClick={onClick}
       onKeyDown={onClick}

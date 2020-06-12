@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withTranslation } from 'react-i18next';
 import Steps from 'rc-steps';
 import 'rc-steps/assets/index.css';
@@ -15,8 +15,22 @@ const Loan = () => {
   const { Step } = Steps;
 
 
+  const changeStep = (step) => {
+    setCurrent(step);
+    Countly.add_event({
+      key: 'loanApplicationStepForm',
+      segmentation: {
+        step,
+      },
+    });
+  };
+
+  useEffect(() => {
+    changeStep(0);
+  }, []);
+
   const apply = () => {
-    setCurrent(3);
+    changeStep(3);
     Countly.add_event({
       key: 'Application',
       segmentation: { type: 'Loan' },
@@ -72,7 +86,7 @@ event ended to calculate
         <TextInput id="iban" type="text" className="w-full" />
       </div>
       <div className="flex items-center justify-between">
-        <GreenButton onClick={() => setCurrent(1)} title="next" />
+        <GreenButton onClick={() => changeStep(1)} title="next" />
 
       </div>
     </form>
@@ -93,7 +107,7 @@ event ended to calculate
         <TextInput id="iban" type="text" className="w-full" />
       </div>
       <div className="flex items-center justify-between">
-        <GreenButton onClick={() => setCurrent(2)} title="next" />
+        <GreenButton onClick={() => changeStep(2)} title="next" />
 
       </div>
     </form>
@@ -134,7 +148,7 @@ event ended to calculate
   return (
     <div className="w-full">
 
-      <Steps progressDot className="border border-gray-300" type="navigation" current={current} onChange={() => setCurrent(current)}>
+      <Steps progressDot className="border border-gray-300" type="navigation" current={current} onChange={() => changeStep(current)}>
         <Step title="Loan" />
         <Step title="Information" />
         <Step title="Type" />

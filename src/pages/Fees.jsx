@@ -16,30 +16,27 @@ const data = [
   },
 ];
 
-const Fees = () => {
-
-  return (
-    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-4 border border-gray-300 w-1/2 mx-auto">
-      <table className="table-auto w-full">
-        <thead>
+const Fees = () => (
+  <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-4 border border-gray-300 w-1/2 mx-auto">
+    <table className="table-auto w-full">
+      <thead>
+        <tr>
+          <th className="px-4 py-2">Currency type</th>
+          <th className="px-4 py-2">Interest rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((elem) => (
           <tr>
-            <th className="px-4 py-2">Currency type</th>
-            <th className="px-4 py-2">Interest rate</th>
+            <td className="border px-4 py-2">{elem.type}</td>
+            <td className="border px-4 py-2">{elem.rate}</td>
           </tr>
-        </thead>
-        <tbody>
-          {data.map((elem) => (
-            <tr>
-              <td className="border px-4 py-2">{elem.type}</td>
-              <td className="border px-4 py-2">{elem.rate}</td>
-            </tr>
-          ))}
+        ))}
 
 
-        </tbody>
-      </table>
-    </div>
-  );
-};
+      </tbody>
+    </table>
+  </div>
+);
 
 export default Fees;

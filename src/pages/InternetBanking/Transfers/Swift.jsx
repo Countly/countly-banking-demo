@@ -13,7 +13,7 @@ const Swift = () => {
 
   const updateSum = (e) => {
     setSum(e.target.value);
-  }
+  };
 
   const sendSwift = () => {
     setStep(1);
