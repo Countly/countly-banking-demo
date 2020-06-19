@@ -3,14 +3,20 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Countly from 'countly-sdk-web';
+import { useSelector } from 'react-redux';
 import GreenButton from './GreenButton';
 import banner from '../../banner.png';
-import banner2 from '../../banner2.png'
-
+import banner2 from '../../banner2.png';
 
 const Header = () => {
   const [currency, setCurrency] = useState({});
-  const [ selectedBanner, setBanner ] = useState({});
+  const [selectedBanner, setBanner] = useState({});
+
+
+  const { user } = useSelector((state) => ({
+    user: state.userReducer.user,
+  }));
+
 
   useEffect(() => {
     Countly.fetch_remote_config((err, remoteConfigs) => {
@@ -87,14 +93,24 @@ event started to calculate
               src="https://count.ly/images/logos/countly-logo.svg"
             />
           </Link>
+          <div>
 
-          <Link onClick={() => internetBankingClicked()} to="/internet-banking/login">
+            {
+            !user
+            && <GreenButton onClick={() => {}} title="Login" />
+          }
 
-            <GreenButton onClick={() => {}} title={t('common.headerInternetBankingButtonText')} />
-
-          </Link>
-
-
+            {
+            user && (
+              <>
+                <Link onClick={() => internetBankingClicked()} to="/internet-banking/login">
+                  <GreenButton onClick={() => {}} title={t('common.headerInternetBankingButtonText')} />
+                </Link>
+                <GreenButton onClick={() => {}} title="Logout" />
+              </>
+            )
+          }
+          </div>
         </div>
       </div>
       <img src={selectedBanner === 1 ? banner : banner2} className="img-fluid" alt="" />

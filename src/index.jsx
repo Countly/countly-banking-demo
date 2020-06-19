@@ -5,9 +5,23 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './i18n';
+import userReducer from './reducers/userReducer.js';
+import thunk from 'redux-thunk';
+import { createStore , combineReducers , compose, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 
+const allEnhancers = compose(
+  applyMiddleware(thunk)
+);
 
-ReactDOM.render(<Router><App /></Router>, document.getElementById('root'));
+const rootReducer = combineReducers({
+    userReducer
+   });
+   
+const store = createStore(rootReducer, { }, allEnhancers);
+   
+
+ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

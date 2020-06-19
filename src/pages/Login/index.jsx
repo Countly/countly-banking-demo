@@ -5,14 +5,22 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import GreenButton from '../../common/components/GreenButton';
 import TextInput from '../../common/components/TextInput';
+import { connect } from "react-redux";
+import { setUser } from "../../actions/userActions";
+import { useSelector,useDispatch } from 'react-redux'
 
 const Login = (props) => {
   const [customerID, setCustomerID] = useState('');
   const [password, setPassword] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
   const [step, setStep] = useState(1);
-  const [user, setUser] = useState({});
   const { t } = useTranslation();
+
+  const { user } = useSelector(state => ({
+    user: state.userReducer.user,
+  }));
+
+  const dispatch = useDispatch()
 
 
   const goSecondStep = () => {
@@ -26,8 +34,8 @@ const Login = (props) => {
       crossDomain: true,
     })
       .then((response) => {
-        if (response.data.customerID) {
-          setUser(response.data);
+        if (response.data?.customerID) {
+          dispatch(setUser(response.data));
           setStep(2);
         } else {
           window.alert('Wrong customerID or password');
@@ -161,4 +169,10 @@ event sent
 };
 
 
-export default Login;
+const mapStateToProps = (state) => {
+  return state;
+};
+
+
+
+export default connect(mapStateToProps)(Login);
