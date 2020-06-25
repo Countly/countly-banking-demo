@@ -100,6 +100,12 @@ event ended to calculate
       Countly.q.push(['userData.increment', 'SuccessfulLoginCount']);
       Countly.q.push(['userData.set', 'Has Loan', user.hasLoan]);
       Countly.q.push(['userData.set', 'Has Credit Card', user.hasCreditCard]);
+      Countly.q.push(['userData.set', 'Has Investment', user.hasInvestment]);
+      Countly.q.push(['userData.set', 'Has Active Mobile Banking', user.hasActiveMobileBanking]);
+      Countly.q.push(['userData.set', 'wrCashWithdrawSuccess', user.wrCashWithdrawSuccess]);
+      Countly.q.push(['userData.set', 'wrCashWithdrawUnsuccessful', user.wrCashWithdrawUnsuccessful]);
+      Countly.q.push(['userData.set', 'wrCashWithdrawAttempt', user.wrCashWithdrawAttempt]);
+      Countly.q.push(['userData.set', 'QR', user.QR]);
       Countly.q.push(['userData.save']);
       props.history.push('/internet-banking');
     } else {

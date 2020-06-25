@@ -37,7 +37,7 @@ const Header = () => {
 event started to calculate
       {' '}
       <strong>duration</strong>
-          </div>, {
+    </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,
@@ -95,21 +95,11 @@ event started to calculate
           </Link>
           <div>
 
-            {
-            !user
-            && <GreenButton onClick={() => {}} title="Login" />
-          }
-
-            {
-            user && (
-              <>
-                <Link onClick={() => internetBankingClicked()} to="/internet-banking/login">
+          
+            <Link onClick={() => internetBankingClicked()} to="/internet-banking/login">
                   <GreenButton onClick={() => {}} title={t('common.headerInternetBankingButtonText')} />
                 </Link>
-                <GreenButton onClick={() => {}} title="Logout" />
-              </>
-            )
-          }
+           
           </div>
         </div>
       </div>
