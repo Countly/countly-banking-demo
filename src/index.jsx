@@ -2,24 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import {
+  createStore, combineReducers, compose, applyMiddleware,
+} from 'redux';
+import thunk from 'redux-thunk';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './i18n';
 import userReducer from './reducers/userReducer.js';
-import thunk from 'redux-thunk';
-import { createStore , combineReducers , compose, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
 
 const allEnhancers = compose(
-  applyMiddleware(thunk)
+  applyMiddleware(thunk),
 );
 
 const rootReducer = combineReducers({
-    userReducer
-   });
-   
+  userReducer,
+});
+
 const store = createStore(rootReducer, { }, allEnhancers);
-   
+
 
 ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById('root'));
 

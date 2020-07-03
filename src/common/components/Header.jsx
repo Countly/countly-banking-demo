@@ -4,14 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Countly from 'countly-sdk-web';
 import { useSelector } from 'react-redux';
-import GreenButton from './GreenButton';
 import banner from '../../banner.png';
 import banner2 from '../../banner2.png';
 
 const Header = () => {
-  const [currency, setCurrency] = useState({});
   const [selectedBanner, setBanner] = useState({});
-
+  const [internetBankingButtonBackgroundColor, setInternetBankingButtonBackgroundColor] = useState('#3F8D42');
+  const [internetBankingButtonTextColor, setInternetBankingButtonTextColor] = useState('#FFFFFF');
 
   const { user } = useSelector((state) => ({
     user: state.userReducer.user,
@@ -21,8 +20,9 @@ const Header = () => {
   useEffect(() => {
     Countly.fetch_remote_config((err, remoteConfigs) => {
       if (!err) {
+        setInternetBankingButtonBackgroundColor(remoteConfigs.internet_banking_button_background_color);
+        setInternetBankingButtonTextColor(remoteConfigs.internet_banking_button_text_color);
         setBanner(remoteConfigs.banner);
-        setCurrency(remoteConfigs);
       }
     });
   }, []);
@@ -69,14 +69,14 @@ event started to calculate
             <span className="text-countly-800 font-bold">
             $
               {' '}
-              {currency.usd}
+              1.12274
             </span>
             <span className="text-gray-500 mx-4">|</span>
 
             <span className="text-red-800 font-bold m-auto">
             ₺
               {' '}
-              {currency.try}
+              7.03376
             </span>
 
             <li className="hidden md:inline-block mr-4 float-right">
@@ -94,12 +94,15 @@ event started to calculate
             />
           </Link>
           <div>
-
-          
             <Link onClick={() => internetBankingClicked()} to="/internet-banking/login">
-                  <GreenButton onClick={() => {}} title={t('common.headerInternetBankingButtonText')} />
-                </Link>
-           
+              <button
+                className="font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-2 shadow"
+                style={{ backgroundColor: internetBankingButtonBackgroundColor, color: internetBankingButtonTextColor }}
+                type="button"
+              >
+                {t('common.headerInternetBankingButtonText')}
+              </button>
+            </Link>
           </div>
         </div>
       </div>
