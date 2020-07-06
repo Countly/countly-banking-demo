@@ -3,19 +3,27 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Countly from 'countly-sdk-web';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import Menu, { SubMenu, MenuItem } from 'rc-menu';
 import banner from '../../banner.png';
 import banner2 from '../../banner2.png';
+import GreenButton from './GreenButton';
+import { setUser } from '../../actions/userActions';
+
 
 const Header = () => {
   const [selectedBanner, setBanner] = useState({});
   const [internetBankingButtonBackgroundColor, setInternetBankingButtonBackgroundColor] = useState('#3F8D42');
   const [internetBankingButtonTextColor, setInternetBankingButtonTextColor] = useState('#FFFFFF');
+  const dispatch = useDispatch();
 
   const { user } = useSelector((state) => ({
     user: state.userReducer.user,
   }));
 
+  const logout = () => {
+    dispatch(setUser(null));
+  };
 
   useEffect(() => {
     Countly.fetch_remote_config((err, remoteConfigs) => {
@@ -37,7 +45,7 @@ const Header = () => {
 event started to calculate
       {' '}
       <strong>duration</strong>
-    </div>, {
+          </div>, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: true,
@@ -94,15 +102,63 @@ event started to calculate
             />
           </Link>
           <div>
-            <Link onClick={() => internetBankingClicked()} to="/internet-banking/login">
-              <button
-                className="font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-2 shadow"
-                style={{ backgroundColor: internetBankingButtonBackgroundColor, color: internetBankingButtonTextColor }}
-                type="button"
-              >
-                {t('common.headerInternetBankingButtonText')}
-              </button>
-            </Link>
+            { user
+              ? (
+                <div>
+                  <Menu mode="horizontal" selectable="false">
+                    <SubMenu title={`${user.name}`}>
+                      <MenuItem style={{ padding: '10px' }}>
+Customer ID :
+                        { user.customerID}
+                        {' '}
+                        <hr />
+                        Gender :
+                        { user.gender}
+                        {' '}
+                        <hr />
+
+hasActiveMobileBanking :
+                        { user.hasActiveMobileBanking ? 'true' : 'false'}
+                        {' '}
+                        <hr />
+
+hasCreditCard :
+                        { user.hasCreditCard ? 'true' : 'false'}
+                        {' '}
+                        <hr />
+
+hasInvestment :
+                        { user.hasInvestment ? 'true' : 'false'}
+                        {' '}
+                        <hr />
+
+hasLoan :
+                        { user.hasLoan ? 'true' : 'false'}
+                        <hr />
+                      <Link onClick={() => logout()} to="/">
+                        <GreenButton
+                          onClick={ () => {}}
+                          className="font-bold rounded focus:outline-none focus:shadow-outline shadow m-2 mx-auto w-full"
+                          title="Logout"
+                        />
+                        </Link>
+                      </MenuItem>
+                    </SubMenu>
+                  </Menu>
+                </div>
+              )
+              : (
+                <Link onClick={() => internetBankingClicked()} to="/internet-banking/login">
+                  <button
+                    className="font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-2 shadow"
+                    style={{ backgroundColor: internetBankingButtonBackgroundColor, color: internetBankingButtonTextColor }}
+                    type="button"
+                  >
+                    {t('common.headerInternetBankingButtonText')}
+                  </button>
+                </Link>
+              )}
+
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-.rc-menu{
+.sidebar .rc-menu{
     border-top:0 !important;
     border-left:0 !important;
     box-shadow: 0 0 0px black;
@@ -6,23 +6,23 @@
     cursor:pointer;
   }
     
-.rc-menu-sub{
+  .sidebar .rc-menu-sub{
 background-color: #0B131A !important;
 }
 
-.rc-menu-submenu-title, .rc-menu-submenu{
+.sidebar .rc-menu-submenu-title, .sidebar .rc-menu-submenu{
 background-color: #0B131A !important;
 }
 
-.rc-menu-item-active{
+.sidebar .rc-menu-item-active{
 background-color: #0B131A !important;
 }
 
-.rc-menu-item-selected{
+.sidebar .rc-menu-item-selected{
   background-color: #0B131A !important;
   }
 
-.rc-menu li:hover , .rc-menu-submenu-title:hover{
+.sidebar .rc-menu li:hover ,  .sidebar  .rc-menu-submenu-title:hover{
 background-color: #13b94d !important;
 }
 

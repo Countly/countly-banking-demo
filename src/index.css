@@ -20,3 +20,49 @@ code {
 .Toastify__toast-body strong{
   color: #12ab47;
 }
+
+header .rc-menu{
+  border-top:0 !important;
+  border-left:0 !important;
+  box-shadow: 0 0 0px black;
+  color: #222222 !important;
+  cursor:pointer;
+}
+
+
+
+header .rc-menu-horizontal{
+  background : none;
+  border: none;
+  color : #222222;
+}
+
+header .rc-menu-horizontal > .rc-menu-submenu, header .rc-menu-horizontal > .rc-menu-item{
+  border : none !important ;
+}
+
+
+header  .rc-menu-item-active, header .rc-menu-submenu-active, header .rc-menu-submenu-open{
+  background: none !important;
+  color: #222222 !important;
+}
+
+
+header .rc-menu li:hover , header .rc-menu-submenu-title:hover{
+  background: none !important;
+}
+
+header .rc-menu-submenu-title {
+  background: none !important;
+}
+
+.rc-menu-item-active{
+  background: none !important;
+  background-color: white !important;
+}
+
+  
+.rc-menu-item-selected{
+  background-color: white !important;
+  background: none !important;
+}
