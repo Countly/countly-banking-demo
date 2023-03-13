@@ -69,15 +69,15 @@ event start to calculate
         className="h-screen"
         onClick={handleClick}
       >
-        <SubMenu title={<span>{t('internetbanking.transfers')}</span>} key="1">
+        <SubMenu title={<span>{t('Money Transfer')}</span>} key="1">
           <MenuItem className="p-3 pl-6" to="/internet-banking/transfers/wire-transfer" key="1-1">
-            {t('internetbanking.wireTransfer')}
+            {t('To Countly Bank')}
           </MenuItem>
-          <MenuItem className="p-3 pl-6" to="/internet-banking/transfers/eft" key="1-2">{t('internetbanking.eft')}</MenuItem>
-          <MenuItem className="p-3 pl-6" to="/internet-banking/transfers/swift" key="1-3">{t('internetbanking.swift')}</MenuItem>
+          <MenuItem className="p-3 pl-6" to="/internet-banking/transfers/eft" key="1-2">{t('To Another Bank')}</MenuItem>
+          <MenuItem className="p-3 pl-6" to="/internet-banking/transfers/swift" key="1-3">{t('SWIFT')}</MenuItem>
         </SubMenu>
 
-        <SubMenu title={<span>{t('internetbanking.payments')}</span>} key="2">
+        <SubMenu title={<span>{t('Payments')}</span>} key="2">
           <SubMenu
             key="2-1"
             title={<span>Utilities</span>}
@@ -97,21 +97,21 @@ event start to calculate
 
         </SubMenu>
 
-        <MenuItem className="p-3 pl-6" to="/internet-banking/products" key="3">{t('internetbanking.products')}</MenuItem>
-        <MenuItem className="p-3 pl-6" to="/internet-banking/investments" key="4">{t('internetbanking.investments')}</MenuItem>
+        <MenuItem className="p-3 pl-6" to="/internet-banking/products" key="3">{t('Products')}</MenuItem>
+        <MenuItem className="p-3 pl-6" to="/internet-banking/investments" key="4">{t('Investments')}</MenuItem>
 
 
-        <SubMenu title={<span>{t('internetbanking.applications')}</span>} key="5">
+        <SubMenu title={<span>{t('Applications')}</span>} key="5">
 
           <MenuItem className="p-3 pl-6" to="/internet-banking/applications/credit-card" key="5-1">
-            {t('internetbanking.creditCard')}
+            {t('Credit Card')}
           </MenuItem>
-          <MenuItem className="p-3 pl-6" to="/internet-banking/applications/loan" key="5-2">{t('internetbanking.loan')}</MenuItem>
-          <MenuItem className="p-3 pl-6" to="/internet-banking/applications/insurance" key="5-3">{t('internetbanking.insurance')}</MenuItem>
+          <MenuItem className="p-3 pl-6" to="/internet-banking/applications/loan" key="5-2">{t('Loan')}</MenuItem>
+          <MenuItem className="p-3 pl-6" to="/internet-banking/applications/insurance" key="5-3">{t('Insurance')}</MenuItem>
         </SubMenu>
 
 
-        <MenuItem to="/internet-banking/settings" className="p-3 pl-6" key="6">{t('internetbanking.settings')}</MenuItem>
+        <MenuItem to="/internet-banking/settings" className="p-3 pl-6" key="6">{t('Settings')}</MenuItem>
 
       </Menu>
 

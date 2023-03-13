@@ -89,7 +89,7 @@ draggable
 pauseOnHover
 />
         <Switch>
-          <Route path="/" component={Home} exact />
+          <Route path="/countly-banking-demo/" component={Home} exact />
 
           <Route path="/about" component={About} exact />
 
@@ -105,7 +105,7 @@ pauseOnHover
 
         </Switch>
         <div style={{ display: showCookieText ? 'flex' : 'none' }} className="w-full bg-white border border-gray-300 fixed bottom-0 flex flex-col items-center text-lg p-2">
-          <h3 className="text-2xl">{ t('common.cookieAreaTitle') }</h3>
+          <h3 className="text-2xl">{ t('This website uses cookies.') }</h3>
 
           <p>{ t('common.cookieAreaContent') }</p>
 
@@ -113,12 +113,12 @@ pauseOnHover
             <label htmlFor="preferences" className="m-2 select-none cursor-pointer">
               <input type="checkbox" name="preferences" id="preferences" value="Preferences" />
               {' '}
-              { t('common.cookieAreaText1') }
+              { t('Preferences') }
             </label>
             <label htmlFor="statistics" className="m-2 select-none cursor-pointer">
               <input type="checkbox" name="statistics" id="statistics" value="Statistics" />
               {' '}
-              { t('common.cookieAreaText2') }
+              { t('Statistics') }
             </label>
             <label htmlFor="marketing" className="m-2 select-none cursor-pointer">
               <input type="checkbox" name="marketing" id="marketing" value="Marketing" />
@@ -127,7 +127,7 @@ pauseOnHover
             </label>
           </div>
 
-          <button type="button" onClick={() => this.okButtonClicked()} className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4">{t('common.cookieAreaButtonText')}</button>
+          <button type="button" onClick={() => this.okButtonClicked()} className="bg-countly-700 hover:bg-countly-800 text-white font-bold py-2 px-4">{t('OK')}</button>
         </div>
       </div>
     );

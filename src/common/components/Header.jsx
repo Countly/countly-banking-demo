@@ -62,15 +62,15 @@ event started to calculate
         <nav className="p-1 shadow">
           <ul>
             <li className="inline-block mx-4">
-              <Link to="/about">{t('common.headerLinkText1')}</Link>
+              <Link to="/about">{t('About Countly Bank')}</Link>
             </li>
             <span className="text-gray-500 mx-2">|</span>
             <li className="inline-block mx-4">
-              <Link to="/contact">{t('common.headerLinkText2')}</Link>
+              <Link to="/contact">Contact US</Link>
             </li>
             <span className="text-gray-500 mx-2">|</span>
             <li className="inline-block mx-4">
-              <Link to="/atm">{t('common.headerLinkText3')}</Link>
+              <Link to="/atm">ATM & Branches</Link>
             </li>
             <span className="text-gray-500 mx-4">|</span>
 
@@ -88,17 +88,17 @@ event started to calculate
             </span>
 
             <li className="hidden md:inline-block mr-4 float-right">
-              <Link to="/fees">{t('common.headerLinkText4')}</Link>
+              <Link to="/fees">{t('Product and Service Fees')}</Link>
             </li>
           </ul>
         </nav>
 
         <div className="p-3 flex justify-between shadow items-center">
-          <Link to="/">
+          <Link to="/countly-banking-demo/">
             <img
               width="200"
               alt="countly logo"
-              src="https://count.ly/images/logos/countly-logo.svg"
+              src="https://uploads-ssl.webflow.com/61c1b7c3e2f3805325be4594/63cc3bf3763a9e448d44ed83_Logo%20-%20Light%20background.svg"
             />
           </Link>
           <div>
@@ -135,12 +135,12 @@ hasInvestment :
 hasLoan :
                         { user.hasLoan ? 'true' : 'false'}
                         <hr />
-                      <Link onClick={() => logout()} to="/">
-                        <GreenButton
-                          onClick={ () => {}}
-                          className="font-bold rounded focus:outline-none focus:shadow-outline shadow m-2 mx-auto w-full"
-                          title="Logout"
-                        />
+                        <Link onClick={() => logout()} to="/">
+                          <GreenButton
+                            onClick={() => {}}
+                            className="font-bold rounded focus:outline-none focus:shadow-outline shadow m-2 mx-auto w-full"
+                            title="Logout"
+                          />
                         </Link>
                       </MenuItem>
                     </SubMenu>
@@ -154,7 +154,7 @@ hasLoan :
                     style={{ backgroundColor: internetBankingButtonBackgroundColor, color: internetBankingButtonTextColor }}
                     type="button"
                   >
-                    {t('common.headerInternetBankingButtonText')}
+                    Internet Banking
                   </button>
                 </Link>
               )}

@@ -33,9 +33,9 @@ const CustomerSlider = () => {
       className="slider text-white px-10 flex flex-row"
     >
       <div className="my-auto w-1/2 p-4">
-        <h1 className="text-5xl">{t('home.customerSliderTitle')}</h1>
+        <h1 className="text-5xl">{t('Be a Customer in Countly Bank')}</h1>
         <p>
-          {t('home.customerSliderContent')}
+          {t('To become a Countly Bank customer, all you have to do is fill out the form below! Apply now, quickly and easily, without the need to go to the branch.')}
         </p>
         <TextInput
           type="email"
@@ -43,7 +43,7 @@ const CustomerSlider = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <WhiteButton onClick={() => { showModal(); }} title={t('home.customerSliderButtonText')} />
+        <WhiteButton onClick={() => { showModal(); }} title={t('Send')} />
       </div>
       <div className={`my-auto w-1/2 overflow-y-auto h-64 bg-white text-darkcountly ${logDisplay ? '' : 'hidden'}`}>
         {logs.map((log) => <div className="m-1">{log}</div>) }

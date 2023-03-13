@@ -136,18 +136,18 @@ event sent
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-4 border border-gray-300">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="customerId">
-            { t('login.customerId') }
+            { t('Customer ID') }
           </label>
           <TextInput id="customerId" onChange={(e) => setCustomerID(e.target.value)} value={customerID} className="w-full" type="text" placeholder="customer Id" />
         </div>
         <div className="mb-6">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-            { t('login.password') }
+            { t('Password') }
           </label>
           <TextInput id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full" placeholder="******************" />
         </div>
         <div className="flex items-center justify-between">
-          <GreenButton onClick={() => goSecondStep()} title={t('login.nextButtonText')} />
+          <GreenButton onClick={() => goSecondStep()} title={'Next'} />
         </div>
       </form>
     </div>
@@ -156,12 +156,12 @@ event sent
 
   const secondStep = () => (
     <div className="w-3/6 bg-white shadow-md rounded px-8 pt-6 pb-10 m-4 border border-gray-300">
-      { t('login.verificationText') }
+      { t('Please enter verification code') }
       {' '}
 (346578)
       <input className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 my-3 leading-tight focus:outline-none focus:shadow-outline" onChange={(e) => setVerificationCode(e.target.value)} id="verificationCode" type="text" placeholder="*******" />
 
-      <GreenButton onClick={() => signInClicked()} title={t('login.signInButtonText')} />
+      <GreenButton onClick={() => signInClicked()} title={t('Sign In')} />
 
     </div>
   );
