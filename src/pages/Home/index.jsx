@@ -55,37 +55,37 @@ segmentation
           >
             <Card
               photo={countlyLogo}
-              title={t('home.countlyCard')}
+              title={t('Countly')}
               isActive={activeTab === 0}
-              onClick={() => cardClicked(0, t('home.countlyCard'))}
+              onClick={() => cardClicked(0, t('Countly'))}
             />
 
             <Card
               photo={customerImage}
-              title={t('home.customerCard')}
+              title={t('New Customer')}
               isActive={activeTab === 1}
-              onClick={() => cardClicked(1, t('home.customerCard'))}
+              onClick={() => cardClicked(1, t('New Customer'))}
             />
 
             <Card
               photo={accountImage}
-              title={t('home.accountCard')}
+              title={t('Account')}
               isActive={activeTab === 2}
-              onClick={() => cardClicked(2, t('home.accountCard'))}
+              onClick={() => cardClicked(2, t('Account'))}
             />
 
             <Card
               photo={loanImage}
-              title={t('home.loanCard')}
+              title={t('Loan')}
               isActive={activeTab === 3}
-              onClick={() => cardClicked(3, t('home.loanCard'))}
+              onClick={() => cardClicked(3, t('Loan'))}
             />
 
             <Card
               photo={savingImage}
-              title={t('home.savingCard')}
+              title={t('Saving')}
               isActive={activeTab === 4}
-              onClick={() => cardClicked(4, t('home.savingCard'))}
+              onClick={() => cardClicked(4, t('Saving'))}
             />
           </div>
         </div>
