@@ -86,15 +86,15 @@ segmentation
       }}
     >
       <div className="w-full md:w-4/6 my-auto">
-        <h1 className="text-5xl">{t('home.loanSliderTitle')}</h1>
+        <h1 className="text-5xl">{t('Advantageous loans for all your needs')}</h1>
         <p className="text-xl">
-          {t('home.loanSliderContent')}
+          {t('With advantageous interest rates and payment terms in your cash needs, it is in your most suitable loan account!')}
         </p>
 
         <div className="flex flex-row mt-3">
           <div className="w-1/2 flex flex-col mr-4">
             <strong>
-              {t('home.loanSliderLabel')}
+              {t('Loan Amount (€)')}
               {' '}
             </strong>
             <input
@@ -103,7 +103,7 @@ segmentation
               step="100"
               className="mt-3"
               value={loanAmount}
-              name={t('home.loanSliderLabel')}
+              name={t('Loan Amount (€)')}
               onChange={(e) => setLoanAmount(e.target.value)}
               type="range"
             />
@@ -113,13 +113,13 @@ segmentation
               min="5000"
               className="w-full"
               max="100000"
-              placeholder={t('home.loanSliderLabel2')}
+              placeholder={t('Loan Amount (€)2')}
               name="loan amount"
               onChange={(e) => setLoanAmount(e.target.value)}
             />
           </div>
           <div className="w-1/2 flex flex-col">
-            <strong>{t('home.loanSliderLabel2')}</strong>
+            <strong>{t('Loan Amount (€)2')}</strong>
             <input
               min="1"
               max="36"
@@ -143,18 +143,18 @@ segmentation
       </div>
       <div className="w-full md:w-2/6 my-auto flex flex-col  text-center">
         <span className="text-xl">
-          {t('home.loanSliderContent2')}
+          {t('With advantageous interest rates and payment terms in your cash needs, it is in your most suitable loan account!2')}
         </span>
         <span className="text-5xl font-bold">
           { monthlyAmount }
         €
           {' '}
           <span className="text-3xl">/ </span>
-          <span className="text-lg">{t('home.loanSliderPerMonth')}</span>
+          <span className="text-lg">{t('per month')}</span>
         </span>
         <WhiteButton onClick={() => calculateButtonClicked()} className="w-1/2 m-auto mb-3" title="Calculate" />
 
-        <WhiteButton onClick={() => {}} className="w-1/2 m-auto" title={t('home.loanSliderButtonText')} />
+        <WhiteButton onClick={() => {}} className="w-1/2 m-auto" title={t('Apply Now')} />
       </div>
     </div>
   );
