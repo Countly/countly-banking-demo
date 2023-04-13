@@ -3,14 +3,14 @@ import Countly from 'countly-sdk-web';
 
 class CountlyHelper {
   constructor() {
-    Countly.app_key = '57a1a2d37c68b0f0238076f5f144ed8fee5a3a04';
-    Countly.url = 'https://demo.count.ly';
+    Countly.app_key = '49b500e501862aaabd078fdffccd097d8fcb3d86';
+    Countly.url = 'https://demo-ui.count.ly';
     Countly.init({
       debug: false,
-      require_consent: true,
-      app_key: '57a1a2d37c68b0f0238076f5f144ed8fee5a3a04',
-      url: 'https://demo.count.ly',
-      interval: 100,
+      require_consent: false,
+      app_key: '49b500e501862aaabd078fdffccd097d8fcb3d86',
+      url: 'https://demo-ui.count.ly',
+      // interval: 100,
       remote_config: true,
     });
     Countly.track_sessions();

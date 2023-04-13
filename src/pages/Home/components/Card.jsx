@@ -1,14 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import Countly from 'countly-sdk-web';
 
 const Card = (props) => {
   const {
     isActive, title, photo, onClick,
   } = props;
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const fetchRemoteConfig = async () => {
+      await Countly.init(); // make sure Countly is initialized, add your configuration here
+      const remoteConfig = Countly.get_remote_config();
+      let isEnabled = false;
+      if (remoteConfig && remoteConfig.home_cards && remoteConfig.home_cards.length > 0) {
+        if (remoteConfig.home_cards.indexOf(title) > -1) {
+          isEnabled = true;
+        }
+      } else {
+        isEnabled = true;
+      }
+      setIsVisible(isEnabled);
+    };
+
+    fetchRemoteConfig();
+  }, []);
+
+  if (!isVisible) {
+    return null;
+  }
+
   return (
     <div
-      className="select-none rounded overflow-hidden shadow-lg bg-gray-300 p-4 m-2 bg-white w-1/3 lg:w-1/4 xl:w-1/6 cursor-pointer"
+      className="card"
       style={{
         backgroundColor: isActive ? '#e2e8f0' : 'white',
         border: isActive ? '1px #13b94d solid' : '1px #E2E8F0 solid',

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Countly from 'countly-sdk-web';
 import { toast } from 'react-toastify';
@@ -10,6 +10,16 @@ const LoanSlider = () => {
   const [term, setTerm] = useState('12');
   const [monthlyAmount, setMonthlyAmount] = useState('416');
   const { t } = useTranslation();
+
+  const [primaryColor, setPrimaryColor] = useState('#18A050');
+  const [gradientColor, setGradientColor] = useState('#11813F');
+  useEffect(() => {
+    const remoteConfigs = Countly.get_remote_config();
+    if (remoteConfigs.home_theme) {
+      setPrimaryColor(remoteConfigs.home_theme.primary);
+      setGradientColor(remoteConfigs.home_theme.gradient);
+    }
+  }, []);
 
 
   const calculateDate = () => {
@@ -57,7 +67,7 @@ event sent with
         {' '}
       </strong>
 segmentation
-    </div>, {
+          </div>, {
       position: 'top-right',
       autoClose: 50000,
       hideProgressBar: true,
@@ -70,7 +80,10 @@ segmentation
 
   return (
     <div
-      className="slider text-white p-10 flex flex-col md:flex-row"
+      className="section"
+      style={{
+        background: `linear-gradient(to left, ${primaryColor}, ${gradientColor})`,
+      }}
     >
       <div className="w-full md:w-4/6 my-auto">
         <h1 className="text-5xl">{t('Advantageous loans for all your needs')}</h1>
