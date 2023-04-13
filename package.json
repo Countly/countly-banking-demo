@@ -34,7 +34,8 @@
   "scripts": {
     "tailwind:css": "tailwind build src/css/tailwind.src.css -c  tailwind.js -o src/css/tailwind.css",
     "start": "npm run tailwind:css && react-scripts start --openssl-legacy-provider",
-    "build": "npm run tailwind:css && react-scripts build --openssl-legacy-provider",
+    "predeploy": "npm run tailwind:css && react-scripts build --openssl-legacy-provider",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
