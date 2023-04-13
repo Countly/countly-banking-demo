@@ -7,7 +7,7 @@
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
-    "countly-sdk-web": "^20.4.0",
+    "countly-sdk-web": "^23.2.1",
     "eslint-plugin-prettier": "^3.1.2",
     "i18next": "^19.1.0",
     "i18next-xhr-backend": "^3.2.2",
@@ -32,8 +32,8 @@
   },
   "scripts": {
     "tailwind:css": "tailwind build src/css/tailwind.src.css -c  tailwind.js -o src/css/tailwind.css",
-    "start": "npm run tailwind:css && react-scripts start",
-    "build": "npm run tailwind:css && react-scripts build",
+    "start": "npm run tailwind:css && react-scripts start --openssl-legacy-provider",
+    "build": "npm run tailwind:css && react-scripts build --openssl-legacy-provider",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

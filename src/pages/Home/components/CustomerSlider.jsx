@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import Countly from 'countly-sdk-web';
 import WhiteButton from '../../../common/components/WhiteButton';
 import TextInput from '../../../common/components/TextInput';
 
@@ -8,6 +9,16 @@ const CustomerSlider = () => {
   const [logDisplay, setLogDisplay] = useState(false);
   const [email, setEmail] = useState('');
   const { t } = useTranslation();
+
+  const [primaryColor, setPrimaryColor] = useState('#18A050');
+  const [gradientColor, setGradientColor] = useState('#11813F');
+  useEffect(() => {
+    const remoteConfigs = Countly.get_remote_config();
+    if (remoteConfigs.home_theme) {
+      setPrimaryColor(remoteConfigs.home_theme.primary);
+      setGradientColor(remoteConfigs.home_theme.gradient);
+    }
+  }, []);
 
   const showModal = () => {
     setLogDisplay(!logDisplay);
@@ -30,7 +41,10 @@ const CustomerSlider = () => {
 
   return (
     <div
-      className="slider text-white px-10 flex flex-row"
+      className="section"
+      style={{
+        background: `linear-gradient(to left, ${primaryColor}, ${gradientColor})`,
+      }}
     >
       <div className="my-auto w-1/2 p-4">
         <h1 className="text-5xl">{t('home.customerSliderTitle')}</h1>

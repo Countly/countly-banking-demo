@@ -5,16 +5,15 @@ import { toast } from 'react-toastify';
 import Countly from 'countly-sdk-web';
 import { useSelector, useDispatch } from 'react-redux';
 import Menu, { SubMenu, MenuItem } from 'rc-menu';
-import banner from '../../banner.png';
-import banner2 from '../../banner2.png';
 import GreenButton from './GreenButton';
 import { setUser } from '../../actions/userActions';
 
 
 const Header = () => {
-  const [selectedBanner, setBanner] = useState({});
-  const [internetBankingButtonBackgroundColor, setInternetBankingButtonBackgroundColor] = useState('#3F8D42');
-  const [internetBankingButtonTextColor, setInternetBankingButtonTextColor] = useState('#FFFFFF');
+  const [selectedBanner, setBanner] = useState('Your Bank');
+  const [primaryColor, setPrimaryColor] = useState('#18A050');
+  const [gradientColor, setGradientColor] = useState('#11813F');
+  const [textColor, setTextColor] = useState('#FFFFFF');
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => ({
@@ -26,13 +25,13 @@ const Header = () => {
   };
 
   useEffect(() => {
-    Countly.fetch_remote_config((err, remoteConfigs) => {
-      if (!err) {
-        setInternetBankingButtonBackgroundColor(remoteConfigs.internet_banking_button_background_color);
-        setInternetBankingButtonTextColor(remoteConfigs.internet_banking_button_text_color);
-        setBanner(remoteConfigs.banner);
-      }
-    });
+    const remoteConfigs = Countly.get_remote_config();
+    if (remoteConfigs.home_theme) {
+      setPrimaryColor(remoteConfigs.home_theme.primary);
+      setGradientColor(remoteConfigs.home_theme.gradient);
+      setTextColor(remoteConfigs.home_theme.text);
+    }
+    if (remoteConfigs.home_banner) { setBanner(remoteConfigs.home_banner); }
   }, []);
 
 
@@ -98,7 +97,7 @@ event started to calculate
             <img
               width="200"
               alt="countly logo"
-              src="https://count.ly/images/logos/countly-logo.svg"
+              src="https://uploads-ssl.webflow.com/61c1b7c3e2f3805325be4594/61d44087e4df5f30c8ac6074_Logo-2021.svg"
             />
           </Link>
           <div>
@@ -135,12 +134,12 @@ hasInvestment :
 hasLoan :
                         { user.hasLoan ? 'true' : 'false'}
                         <hr />
-                      <Link onClick={() => logout()} to="/">
-                        <GreenButton
-                          onClick={ () => {}}
-                          className="font-bold rounded focus:outline-none focus:shadow-outline shadow m-2 mx-auto w-full"
-                          title="Logout"
-                        />
+                        <Link onClick={() => logout()} to="/">
+                          <GreenButton
+                            onClick={() => {}}
+                            className="font-bold rounded focus:outline-none focus:shadow-outline shadow m-2 mx-auto w-full"
+                            title="Logout"
+                          />
                         </Link>
                       </MenuItem>
                     </SubMenu>
@@ -150,8 +149,8 @@ hasLoan :
               : (
                 <Link onClick={() => internetBankingClicked()} to="/internet-banking/login">
                   <button
-                    className="font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-2 shadow"
-                    style={{ backgroundColor: internetBankingButtonBackgroundColor, color: internetBankingButtonTextColor }}
+                    className="green-button"
+                    style={{ backgroundColor: primaryColor, color: textColor }}
                     type="button"
                   >
                     {t('common.headerInternetBankingButtonText')}
@@ -162,7 +161,19 @@ hasLoan :
           </div>
         </div>
       </div>
-      <img src={selectedBanner === 1 ? banner : banner2} className="img-fluid" alt="" />
+      <div
+        className="banner"
+        style={{
+          background: `linear-gradient(90deg, ${gradientColor}, ${primaryColor},  ${gradientColor})`,
+        }}
+      >
+        <div className="banner-content">
+          <h1>{selectedBanner}</h1>
+          <p>Banking made easy</p>
+        </div>
+      </div>
+
+      {/* <img src={selectedBanner === 1 ? banner : banner2} className="img-fluid" alt="" /> */}
     </header>
   );
 };
