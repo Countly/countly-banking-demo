@@ -9,14 +9,12 @@ import './css/tailwind.css';
 import InternetBanking from './pages/InternetBanking';
 import Login from './pages/Login';
 import Header from './common/components/Header';
-import './helpers/countly';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import ATM from './pages/ATM';
 import Fees from './pages/Fees';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-
 
 class App extends React.Component {
   componentDidMount() {
@@ -31,7 +29,6 @@ class App extends React.Component {
         draggable: true,
         });
     });
-    this.checkConsest()
   }
 
   componentWillUnmount() {
@@ -42,33 +39,10 @@ class App extends React.Component {
     showCookieText: true,
   }
 
-  checkConsest = () => {
-    if (typeof (localStorage) !== 'undefined') {
-      const consents = localStorage.getItem('consents');
-      // checking if user already provided consent
-      if (consents) {
-        this.setState({ showCookieText :false })
-        Countly.add_consent(JSON.parse(consents));
-      } else {
-        this.setState({ showCookieText :true })
-      }
-    } else {
-      // Sorry! No Web Storage support..
-      // we can fallback to cookie
-    }
-  }
 
   okButtonClicked = () => {
     this.setState({ showCookieText: false });
-    const all = ["sessions","events","views","scrolls","clicks","forms","crashes","attribution","users"];
-    Countly.group_features({
-      all
-    });
-    localStorage.setItem('consents', JSON.stringify(all));
-    Countly.add_consent("all");
   }
-
-
 
   render() {
     const { showCookieText } = this.state;
@@ -78,16 +52,16 @@ class App extends React.Component {
       <div>
         <Header />
         <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop
-closeOnClick
-rtl={false}
-pauseOnVisibilityChange
-draggable
-pauseOnHover
-/>
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnVisibilityChange
+          draggable
+          pauseOnHover
+        />
         <Switch>
           <Route path="/countly-banking-demo/" component={Home} exact />
 

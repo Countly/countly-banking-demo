@@ -6,11 +6,28 @@ import { Provider } from 'react-redux';
 import {
   createStore, combineReducers, compose, applyMiddleware,
 } from 'redux';
+import Countly from 'countly-sdk-web';
 import thunk from 'redux-thunk';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './i18n';
 import userReducer from './reducers/userReducer.js';
+
+window.Countly = Countly;
+
+Countly.init({
+  debug: true,
+  require_consent: false,
+  app_key: '49b500e501862aaabd078fdffccd097d8fcb3d86',
+  url: 'https://demo-ui.count.ly',
+  remote_config: true,
+});
+Countly.track_sessions();
+Countly.track_clicks();
+Countly.track_scrolls();
+Countly.track_forms();
+Countly.track_errors();
+Countly.track_links();
 
 const allEnhancers = compose(
   applyMiddleware(thunk),
