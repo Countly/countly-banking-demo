@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6dc00765152412499dc4e1adbcbbdf30",
+    "revision": "3c4a3cd09f6e27067f8e3a549d223507",
     "url": "https://countly.github.io/countly-banking-demo/index.html"
   },
   {
-    "revision": "d92516a4094d21b74471",
+    "revision": "97e3933cb8060301ad26",
     "url": "https://countly.github.io/countly-banking-demo/static/css/2.a6c20184.chunk.css"
   },
   {
-    "revision": "41ebca2bfac04f432077",
+    "revision": "5c5e35fdaf8572e50238",
     "url": "https://countly.github.io/countly-banking-demo/static/css/main.b8a3c6d9.chunk.css"
   },
   {
-    "revision": "d92516a4094d21b74471",
-    "url": "https://countly.github.io/countly-banking-demo/static/js/2.0f49a905.chunk.js"
+    "revision": "97e3933cb8060301ad26",
+    "url": "https://countly.github.io/countly-banking-demo/static/js/2.1cd1659b.chunk.js"
   },
   {
     "revision": "fd64d766fb7e6d1a18e038d229e55314",
-    "url": "https://countly.github.io/countly-banking-demo/static/js/2.0f49a905.chunk.js.LICENSE"
+    "url": "https://countly.github.io/countly-banking-demo/static/js/2.1cd1659b.chunk.js.LICENSE"
   },
   {
-    "revision": "41ebca2bfac04f432077",
-    "url": "https://countly.github.io/countly-banking-demo/static/js/main.ec13185e.chunk.js"
+    "revision": "5c5e35fdaf8572e50238",
+    "url": "https://countly.github.io/countly-banking-demo/static/js/main.52245336.chunk.js"
   },
   {
     "revision": "446a19cf7c185070f733",
