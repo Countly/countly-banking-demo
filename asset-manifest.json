@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "https://countly.github.io/countly-banking-demo/static/css/main.b8a3c6d9.chunk.css",
-    "main.js": "https://countly.github.io/countly-banking-demo/static/js/main.0a3e2037.chunk.js",
-    "main.js.map": "https://countly.github.io/countly-banking-demo/static/js/main.0a3e2037.chunk.js.map",
+    "main.css": "https://countly.github.io/countly-banking-demo/static/css/main.28127d79.chunk.css",
+    "main.js": "https://countly.github.io/countly-banking-demo/static/js/main.f7e57aeb.chunk.js",
+    "main.js.map": "https://countly.github.io/countly-banking-demo/static/js/main.f7e57aeb.chunk.js.map",
     "runtime-main.js": "https://countly.github.io/countly-banking-demo/static/js/runtime-main.e0879aaf.js",
     "runtime-main.js.map": "https://countly.github.io/countly-banking-demo/static/js/runtime-main.e0879aaf.js.map",
     "static/css/2.a6c20184.chunk.css": "https://countly.github.io/countly-banking-demo/static/css/2.a6c20184.chunk.css",
-    "static/js/2.be30da42.chunk.js": "https://countly.github.io/countly-banking-demo/static/js/2.be30da42.chunk.js",
-    "static/js/2.be30da42.chunk.js.map": "https://countly.github.io/countly-banking-demo/static/js/2.be30da42.chunk.js.map",
+    "static/js/2.246dc943.chunk.js": "https://countly.github.io/countly-banking-demo/static/js/2.246dc943.chunk.js",
+    "static/js/2.246dc943.chunk.js.map": "https://countly.github.io/countly-banking-demo/static/js/2.246dc943.chunk.js.map",
     "index.html": "https://countly.github.io/countly-banking-demo/index.html",
-    "precache-manifest.69616f254d112f8b9f591e7231d020be.js": "https://countly.github.io/countly-banking-demo/precache-manifest.69616f254d112f8b9f591e7231d020be.js",
+    "precache-manifest.2c93aa3b0c5ea0cd81672063089d73b9.js": "https://countly.github.io/countly-banking-demo/precache-manifest.2c93aa3b0c5ea0cd81672063089d73b9.js",
     "service-worker.js": "https://countly.github.io/countly-banking-demo/service-worker.js",
     "static/css/2.a6c20184.chunk.css.map": "https://countly.github.io/countly-banking-demo/static/css/2.a6c20184.chunk.css.map",
-    "static/css/main.b8a3c6d9.chunk.css.map": "https://countly.github.io/countly-banking-demo/static/css/main.b8a3c6d9.chunk.css.map",
-    "static/js/2.be30da42.chunk.js.LICENSE": "https://countly.github.io/countly-banking-demo/static/js/2.be30da42.chunk.js.LICENSE",
+    "static/css/main.28127d79.chunk.css.map": "https://countly.github.io/countly-banking-demo/static/css/main.28127d79.chunk.css.map",
+    "static/js/2.246dc943.chunk.js.LICENSE": "https://countly.github.io/countly-banking-demo/static/js/2.246dc943.chunk.js.LICENSE",
     "static/media/account.svg": "https://countly.github.io/countly-banking-demo/static/media/account.4c2407bb.svg",
     "static/media/countly-overview.png": "https://countly.github.io/countly-banking-demo/static/media/countly-overview.15e4ed93.png",
     "static/media/countly.png": "https://countly.github.io/countly-banking-demo/static/media/countly.7cddf229.png",
@@ -24,8 +24,8 @@
   "entrypoints": [
     "static/js/runtime-main.e0879aaf.js",
     "static/css/2.a6c20184.chunk.css",
-    "static/js/2.be30da42.chunk.js",
-    "static/css/main.b8a3c6d9.chunk.css",
-    "static/js/main.0a3e2037.chunk.js"
+    "static/js/2.246dc943.chunk.js",
+    "static/css/main.28127d79.chunk.css",
+    "static/js/main.f7e57aeb.chunk.js"
   ]
 }

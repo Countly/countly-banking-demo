@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://countly.github.io/countly-banking-demo/precache-manifest.69616f254d112f8b9f591e7231d020be.js"
+  "https://countly.github.io/countly-banking-demo/precache-manifest.2c93aa3b0c5ea0cd81672063089d73b9.js"
 );
 
 self.addEventListener('message', (event) => {
