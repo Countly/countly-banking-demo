@@ -15,6 +15,7 @@ import ATM from './pages/ATM';
 import Fees from './pages/Fees';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import IframeComponent from './iframe';
 
 class App extends React.Component {
   componentDidMount() {
@@ -51,6 +52,7 @@ class App extends React.Component {
     return (
       <Router basename="/countly-banking-demo">
         <div>
+          <IframeComponent />
           <Header />
           <ToastContainer
             position="top-right"

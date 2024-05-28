@@ -195,3 +195,7 @@ header .rc-menu-submenu-title {
   background-color: var(--hover-green);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
 }
+
+.hidden-iframe {
+  display: none;
+}
