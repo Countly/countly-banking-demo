@@ -26,6 +26,7 @@ const Home = () => {
       key: 'cardClick',
       segmentation: { type },
     });
+    Countly.content.refreshContentZone()
     toast(<div>
       {' '}
       <strong> cardClick</strong>
