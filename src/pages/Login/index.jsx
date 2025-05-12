@@ -108,7 +108,7 @@ const Login = (props) => {
       Countly.q.push(['userData.set', 'QR', user.QR]);
       Countly.q.push(['userData.save']);
       Countly.q.push(() => { Countly.content.enterContentZone(); });
-      Countly.content_zone_timer_interval = 5;
+      Countly.content_zone_timer_interval = 15;
       props.history.push('/internet-banking');
     } else {
       window.alert('Wrong verification code');
