@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "https://countly.github.io/countly-banking-demo/static/css/main.09a9b22e.chunk.css",
-    "main.js": "https://countly.github.io/countly-banking-demo/static/js/main.2f210895.chunk.js",
-    "main.js.map": "https://countly.github.io/countly-banking-demo/static/js/main.2f210895.chunk.js.map",
+    "main.js": "https://countly.github.io/countly-banking-demo/static/js/main.bea0526d.chunk.js",
+    "main.js.map": "https://countly.github.io/countly-banking-demo/static/js/main.bea0526d.chunk.js.map",
     "runtime-main.js": "https://countly.github.io/countly-banking-demo/static/js/runtime-main.e0879aaf.js",
     "runtime-main.js.map": "https://countly.github.io/countly-banking-demo/static/js/runtime-main.e0879aaf.js.map",
     "static/css/2.b4f7f218.chunk.css": "https://countly.github.io/countly-banking-demo/static/css/2.b4f7f218.chunk.css",
     "static/js/2.e2ae3340.chunk.js": "https://countly.github.io/countly-banking-demo/static/js/2.e2ae3340.chunk.js",
     "static/js/2.e2ae3340.chunk.js.map": "https://countly.github.io/countly-banking-demo/static/js/2.e2ae3340.chunk.js.map",
     "index.html": "https://countly.github.io/countly-banking-demo/index.html",
-    "precache-manifest.884807ff3530e51c5ac5d9135e99c31a.js": "https://countly.github.io/countly-banking-demo/precache-manifest.884807ff3530e51c5ac5d9135e99c31a.js",
+    "precache-manifest.ae30dc3a5ed4afd2e184981196d982a2.js": "https://countly.github.io/countly-banking-demo/precache-manifest.ae30dc3a5ed4afd2e184981196d982a2.js",
     "service-worker.js": "https://countly.github.io/countly-banking-demo/service-worker.js",
     "static/css/2.b4f7f218.chunk.css.map": "https://countly.github.io/countly-banking-demo/static/css/2.b4f7f218.chunk.css.map",
     "static/css/main.09a9b22e.chunk.css.map": "https://countly.github.io/countly-banking-demo/static/css/main.09a9b22e.chunk.css.map",
@@ -26,6 +26,6 @@
     "static/css/2.b4f7f218.chunk.css",
     "static/js/2.e2ae3340.chunk.js",
     "static/css/main.09a9b22e.chunk.css",
-    "static/js/main.2f210895.chunk.js"
+    "static/js/main.bea0526d.chunk.js"
   ]
 }

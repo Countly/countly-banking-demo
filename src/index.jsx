@@ -22,6 +22,7 @@ Countly.init({
   url: 'https://demo-ui.count.ly',
   remote_config: true,
   content_zone_timer_interval: 16,
+  clear_stored_id: true,
 });
 Countly.track_sessions();
 Countly.track_clicks();
