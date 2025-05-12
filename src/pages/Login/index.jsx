@@ -7,7 +7,7 @@ import GreenButton from '../../common/components/GreenButton';
 import TextInput from '../../common/components/TextInput';
 import { connect } from "react-redux";
 import { setUser } from "../../actions/userActions";
-import { useSelector,useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 const Login = (props) => {
   const [customerID, setCustomerID] = useState('');
@@ -50,11 +50,11 @@ const Login = (props) => {
             {' '}
             <strong>wrongAuthData</strong>
             {' '}
-    event sent with
+            event sent with
             {' '}
             <strong>{customerID}</strong>
             {' '}
-    segmentation
+            segmentation
           </div>, {
             position: 'top-right',
             autoClose: 5000,
@@ -74,10 +74,10 @@ const Login = (props) => {
         {' '}
         <strong>LoginOperation</strong>
         {' '}
-event ended to calculate
+        event ended to calculate
         {' '}
         <strong>duration</strong>
-            </div>, {
+      </div>, {
         position: 'top-right',
         autoClose: 5000,
         hideProgressBar: true,
@@ -107,6 +107,8 @@ event ended to calculate
       Countly.q.push(['userData.set', 'QRCashWithdrawAttempt', user.wrCashWithdrawAttempt]);
       Countly.q.push(['userData.set', 'QR', user.QR]);
       Countly.q.push(['userData.save']);
+      Countly.q.push(() => { Countly.content.enterContentZone(); });
+      Countly.content_zone_timer_interval = 15;
       props.history.push('/internet-banking');
     } else {
       window.alert('Wrong verification code');
@@ -119,7 +121,7 @@ event ended to calculate
       toast(<div>
         <strong>wrongVerificationCode</strong>
         {' '}
-event sent
+        event sent
       </div>, {
         position: 'top-right',
         autoClose: 5000,
@@ -136,13 +138,13 @@ event sent
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 m-4 border border-gray-300">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="customerId">
-            { t('Customer ID') }
+            {t('Customer ID')}
           </label>
           <TextInput id="customerId" onChange={(e) => setCustomerID(e.target.value)} value={customerID} className="w-full" type="text" placeholder="customer Id" />
         </div>
         <div className="mb-6">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-            { t('Password') }
+            {t('Password')}
           </label>
           <TextInput id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full" placeholder="******************" />
         </div>
@@ -156,9 +158,9 @@ event sent
 
   const secondStep = () => (
     <div className="w-3/6 bg-white shadow-md rounded px-8 pt-6 pb-10 m-4 border border-gray-300">
-      { t('Please enter verification code') }
+      {t('Please enter verification code')}
       {' '}
-(346578)
+      (346578)
       <input className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 my-3 leading-tight focus:outline-none focus:shadow-outline" onChange={(e) => setVerificationCode(e.target.value)} id="verificationCode" type="text" placeholder="*******" />
 
       <GreenButton onClick={() => signInClicked()} title={t('Sign In')} />
@@ -169,7 +171,7 @@ event sent
 
   return (
     <div className="flex p-10 justify-center items-center bg-darkcountly h-screen">
-      { step === 1 ? firstStep() : secondStep() }
+      {step === 1 ? firstStep() : secondStep()}
     </div>
   );
 };

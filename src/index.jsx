@@ -21,6 +21,7 @@ Countly.init({
   app_key: '49b500e501862aaabd078fdffccd097d8fcb3d86',
   url: 'https://demo-ui.count.ly',
   remote_config: true,
+  content_zone_timer_interval: 16,
 });
 Countly.track_sessions();
 Countly.track_clicks();
@@ -28,6 +29,7 @@ Countly.track_scrolls();
 Countly.track_forms();
 Countly.track_errors();
 Countly.track_links();
+Countly.content.enterContentZone()
 
 const allEnhancers = compose(
   applyMiddleware(thunk),
