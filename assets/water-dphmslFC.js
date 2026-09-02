@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-CznXPbDH.js";import{t}from"./DashboardLayout-wyt_d_kh.js";import{t as n}from"./PaymentPage-BJFcF1A6.js";var r=e(),i=()=>(0,r.jsx)(t,{children:(0,r.jsx)(n,{title:`Water`,selectLabel:`Company`,options:[`Company X`,`Company Y`,`Company Z`],showAccountNo:!0,eventKey:`Util`,segmentation:{type:`Water`},toastValue:`Water`})});export{i as component};

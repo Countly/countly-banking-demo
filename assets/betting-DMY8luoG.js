@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-CznXPbDH.js";import{t}from"./DashboardLayout-8r0VKOMh.js";import{t as n}from"./PaymentPage-DxxswwcJ.js";var r=e(),i=()=>(0,r.jsx)(t,{children:(0,r.jsx)(n,{title:`Betting Page`,selectLabel:`Organization`,options:[`Company X`,`Company Y`,`Company Z`],eventKey:`Payment`,segmentation:{type:`Betting`},toastValue:`Betting`})});export{i as component};
