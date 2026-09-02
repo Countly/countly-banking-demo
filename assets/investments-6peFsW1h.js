@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-CznXPbDH.js";import{t}from"./DashboardLayout-wyt_d_kh.js";import{t as n}from"./PaymentPage-BJFcF1A6.js";var r=e(),i=()=>(0,r.jsx)(t,{children:(0,r.jsx)(n,{title:`Investments Page`,selectLabel:`Organization`,options:[`Company X`,`Company Y`,`Company Z`],eventKey:`Investment`})});export{i as component};
