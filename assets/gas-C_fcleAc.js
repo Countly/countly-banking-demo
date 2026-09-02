@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-CznXPbDH.js";import{t}from"./DashboardLayout-eZyDimdn.js";import{t as n}from"./PaymentPage-BC3qVOZ6.js";var r=e(),i=()=>(0,r.jsx)(t,{children:(0,r.jsx)(n,{title:`Gas`,selectLabel:`Company`,options:[`Company X`,`Company Y`,`Company Z`],showAccountNo:!0,eventKey:`Util`,segmentation:{type:`Gas`},toastValue:`Gas`})});export{i as component};
