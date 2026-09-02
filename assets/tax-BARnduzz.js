@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-CznXPbDH.js";import{t}from"./DashboardLayout-eZyDimdn.js";import{t as n}from"./PaymentPage-BC3qVOZ6.js";var r=e(),i=()=>(0,r.jsx)(t,{children:(0,r.jsx)(n,{title:`Tax`,selectLabel:`Company`,options:[`Company X`,`Company Y`,`Company Z`],eventKey:`Payment`,segmentation:{type:`Tax`},toastValue:`Tax`})});export{i as component};
