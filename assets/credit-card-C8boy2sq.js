@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-CznXPbDH.js";import{t}from"./DashboardLayout-8r0VKOMh.js";import{t as n}from"./PaymentPage-DxxswwcJ.js";var r=e(),i=()=>(0,r.jsx)(t,{children:(0,r.jsx)(n,{title:`Credit Card Page`,selectLabel:`Card`,options:[`Card X`,`Card Y`,`Card Z`],eventKey:`Payment`,segmentation:{type:`CreditCard`},toastValue:`Credit Card`})});export{i as component};
